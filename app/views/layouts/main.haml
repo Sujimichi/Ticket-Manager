@@ -37,7 +37,7 @@
             .flash_error= flash[:error]
           - if flash[:notice]
             .flash_notice= flash[:notice]
-          - if flash[:fade]
+          - unless flash[:fade]
             :javascript
               $(function (){
                 var flash_fade = function (){$('#flash').hide('slow')};

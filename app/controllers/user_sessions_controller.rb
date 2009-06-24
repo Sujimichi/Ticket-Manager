@@ -1,4 +1,9 @@
 class UserSessionsController < ApplicationController
+  skip_before_filter :require_login, :just => [:new]
+
+  def new
+    @user_session = UserSession.new
+  end
 
   def create
     @user_session = UserSession.new(params[:user_session])
@@ -6,7 +11,8 @@ class UserSessionsController < ApplicationController
       flash[:notice] = "Successfully logged in."
       redirect_to root_url
     else
-      render :action => 'new'
+      flash[:error] = "hmmm, I dont like you"
+      redirect_to root_url
     end
   end
 

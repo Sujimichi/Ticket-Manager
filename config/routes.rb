@@ -40,6 +40,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => "welcome"
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
+
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.

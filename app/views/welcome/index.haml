@@ -1,1 +1,21 @@
-%h1 yo fool
+
+- if current_user
+  Oh, ur back.
+
+
+- unless current_user
+  #welcome_matt{:style => 'margin-top:3em'}
+    .centered
+      .widget{:style => 'min-height:5em;', :id => 'login_widget'}
+        - form_for UserSession.new do |f|
+          - f.error_messages
+          %br
+          .css_table
+            .label= f.label :username
+            .value= f.text_field :username
+          .css_table
+            .label= f.label :password
+            .value= f.password_field :password
+          .clear
+          =f.submit("Login")
+          %br

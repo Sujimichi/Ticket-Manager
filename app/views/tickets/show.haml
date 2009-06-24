@@ -1,0 +1,25 @@
+#ticket_show
+  .attribute
+    .name Number:
+    .value=h @ticket.number 
+  .attribute
+    .name Title:
+    .value=h @ticket.title 
+
+#update_ticket{:style => 'display:none;'}
+  = render :partial => 'form', :locals => {:ticket => @ticket }
+
+= link_to_function 'Edit', :href => edit_ticket_path(@ticket), :id => "edit_ticket_link" do |page|
+  - page[:ticket_show].visual_effect :blind_up, :duration => 0.5
+  - page[:update_ticket].visual_effect :blind_down, :duration => 0.5
+  - page[:edit_ticket_link].hide
+  - page[:cancel_edit_ticket_link].visual_effect :appear
+
+= link_to_function 'Cancel', :href => edit_ticket_path(@ticket), :id => 'cancel_edit_ticket_link', :style => "display:none;" do |page|
+  - page[:ticket_show].visual_effect :blind_down, :duration => 0.5
+  - page[:update_ticket].visual_effect :blind_up, :duration => 0.5
+  - page[:cancel_edit_ticket_link].hide
+  - page[:edit_ticket_link].visual_effect :appear
+
+|
+= link_to 'Back', tickets_path

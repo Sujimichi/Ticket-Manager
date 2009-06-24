@@ -1,0 +1,25 @@
+%h1 Listing user_sessions
+
+= link_to_function 'New user_session', :href => new_user_session_path, :id => 'new_user_session_link' do |page|
+  - page[:create_user_session].visual_effect :blind_down, :duration => 0.5
+  - page[:new_user_session_link].hide
+  - page[:cancel_new_user_session_link].visual_effect :appear
+
+= link_to_function 'Cancel', :href => new_user_session_path, :id => 'cancel_new_user_session_link', :style => "display:none;" do |page|
+  - page[:create_user_session].visual_effect :blind_up, :duration => 0.5
+  - page[:cancel_new_user_session_link].hide
+  - page[:new_user_session_link].visual_effect :appear
+
+#create_user_session{:style => 'display:none;'}
+  = render :partial => 'form', :locals => {:user_session => UserSession.new }
+
+%table{:width => "100%"}
+  %tr
+
+  -for user_session in @user_sessions
+    %tr
+
+    
+      %td= link_to 'Show', user_session_path(user_session)
+      %td= link_to 'Edit', edit_user_session_path(user_session)
+      %td= link_to 'Destroy', user_session_path(user_session), :method => :delete

@@ -1,0 +1,19 @@
+#user_session_show
+
+#update_user_session{:style => 'display:none;'}
+  = render :partial => 'form', :locals => {:user_session => @user_session }
+
+= link_to_function 'Edit', :href => edit_user_session_path(@user_session), :id => "edit_user_session_link" do |page|
+  - page[:user_session_show].visual_effect :blind_up, :duration => 0.5
+  - page[:update_user_session].visual_effect :blind_down, :duration => 0.5
+  - page[:edit_user_session_link].hide
+  - page[:cancel_edit_user_session_link].visual_effect :appear
+
+= link_to_function 'Cancel', :href => edit_user_session_path(@user_session), :id => 'cancel_edit_user_session_link', :style => "display:none;" do |page|
+  - page[:user_session_show].visual_effect :blind_down, :duration => 0.5
+  - page[:update_user_session].visual_effect :blind_up, :duration => 0.5
+  - page[:cancel_edit_user_session_link].hide
+  - page[:edit_user_session_link].visual_effect :appear
+
+|
+= link_to 'Back', user_sessions_path

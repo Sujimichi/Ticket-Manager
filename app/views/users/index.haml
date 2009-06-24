@@ -1,0 +1,31 @@
+%h1 Listing users
+
+= link_to_function 'New user', :href => new_user_path, :id => 'new_user_link' do |page|
+  - page[:create_user].visual_effect :blind_down, :duration => 0.5
+  - page[:new_user_link].hide
+  - page[:cancel_new_user_link].visual_effect :appear
+
+= link_to_function 'Cancel', :href => new_user_path, :id => 'cancel_new_user_link', :style => "display:none;" do |page|
+  - page[:create_user].visual_effect :blind_up, :duration => 0.5
+  - page[:cancel_new_user_link].hide
+  - page[:new_user_link].visual_effect :appear
+
+#create_user{:style => 'display:none;'}
+  = render :partial => 'form', :locals => {:user => User.new }
+
+%table{:width => "100%"}
+  %tr
+    %th Username
+    %th Email
+    %th Password
+
+  -for user in @users
+    %tr
+      %td= h user.username
+      %td= h user.email
+      %td= h user.password
+
+    
+      %td= link_to 'Show', user_path(user)
+      %td= link_to 'Edit', edit_user_path(user)
+      %td= link_to 'Destroy', user_path(user), :method => :delete

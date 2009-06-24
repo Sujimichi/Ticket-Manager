@@ -1,0 +1,15 @@
+.user_form
+  -form_for user do |f|
+    = f.error_messages
+    
+    .attribute
+      .name= f.label :username
+      .value= f.text_field :username 
+    .attribute
+      .name= f.label :email
+      .value= f.text_field :email 
+    .attribute
+      .name= f.label :password
+      .value= f.text_field :password 
+    
+    .user_submit_button= f.submit "Save"

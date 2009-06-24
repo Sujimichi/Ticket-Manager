@@ -1,0 +1,50 @@
+!!!
+%html
+  %head
+    = stylesheet_link_tag 'utils.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'layout.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'custom-theme/jquery-ui-1.7.1.custom.css', :rel => "Stylesheet"
+
+    = javascript_include_tag "application", :defaults, "json", "jquery.flot"
+    <!--[if IE]><script language="javascript" type="text/javascript" src="excanvas.pack.js"></script><![endif]-->
+
+    %title
+      Ticket Conductor
+
+  %body
+    #body
+      #header
+        .title{:onmouseup => "window.open('#{root_url}', '_parent')"}
+          Ticket Conductor
+        .tag tickets please
+        .links
+          - unless current_user
+            = link_to "register", new_user_path
+          - if current_user
+            .right.small
+              = link_to "logout", logout_path, :onmousedown => "$('#content').fadeOut()"
+              = link_to "edit", edit_user_path(:current)
+            .clear
+
+      #content
+        #flash.hidden
+          -if flash[:error] || flash[:notice]
+            :javascript
+              $(function (){$('#flash').fadeIn('slow')});
+
+
+          - if flash[:error]
+            .flash_error= flash[:error]
+          - if flash[:notice]
+            .flash_notice= flash[:notice]
+          - if flash[:fade]
+            :javascript
+              $(function (){
+                var flash_fade = function (){$('#flash').hide('slow')};
+                setTimeout ( flash_fade, 2000 );
+              });
+        =yield
+
+      .clear
+      #footer
+        %h6 TicketManager.on_rails[:alpha]

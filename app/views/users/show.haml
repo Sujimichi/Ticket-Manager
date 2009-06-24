@@ -1,0 +1,28 @@
+#user_show
+  .attribute
+    .name Username:
+    .value=h @user.username 
+  .attribute
+    .name Email:
+    .value=h @user.email 
+  .attribute
+    .name Password:
+    .value=h @user.password 
+
+#update_user{:style => 'display:none;'}
+  = render :partial => 'form', :locals => {:user => @user }
+
+= link_to_function 'Edit', :href => edit_user_path(@user), :id => "edit_user_link" do |page|
+  - page[:user_show].visual_effect :blind_up, :duration => 0.5
+  - page[:update_user].visual_effect :blind_down, :duration => 0.5
+  - page[:edit_user_link].hide
+  - page[:cancel_edit_user_link].visual_effect :appear
+
+= link_to_function 'Cancel', :href => edit_user_path(@user), :id => 'cancel_edit_user_link', :style => "display:none;" do |page|
+  - page[:user_show].visual_effect :blind_down, :duration => 0.5
+  - page[:update_user].visual_effect :blind_up, :duration => 0.5
+  - page[:cancel_edit_user_link].hide
+  - page[:edit_user_link].visual_effect :appear
+
+|
+= link_to 'Back', users_path

@@ -46,3 +46,459 @@ Migrating to CreateTickets (20090624202420)
 [0m
   [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
   [4;36;1mSQL (5.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090624202420')[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 21:33:32) [GET]
+
+ActionView::MissingTemplate (Missing template welcome/index.erb in view path app/views):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 21:33:55) [GET]
+Rendering welcome/index
+Completed in 17ms (View: 13, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTickets (20090624202420)
+Migrating to CreateUsers (20090624204942)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090624204942')[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("tickets")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 21:53:10) [GET]
+Rendering welcome/index
+Completed in 17ms (View: 13, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 21:53:11) [GET]
+Rendering welcome/index
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:33:16) [GET]
+Rendering welcome/index
+Completed in 41ms (View: 37, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:39:57) [GET]
+Rendering welcome/index
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:40:24) [GET]
+Rendering welcome/index
+Completed in 24ms (View: 13, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:41:19) [GET]
+Rendering template within layouts/main
+Rendering welcome/index
+
+ActionView::TemplateError (undefined local variable or method `current_user' for #<ActionView::Base:0xb70ba0d8>) on line #21 of app/views/layouts/main.haml:
+18:           Ticket Conductor
+19:         .tag tickets please
+20:         .links
+21:           - unless current_user
+22:             = link_to "register", new_user_path
+23:           - if current_user
+24:             .right.small
+
+    app/views/layouts/main.haml:21:in `_run_haml_app47views47layouts47main46haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (350.0ms)
+Rendered rescues/_request_and_response (3.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:47:30) [GET]
+Rendering template within layouts/main
+Rendering welcome/index
+
+ActionView::TemplateError (undefined local variable or method `current_user' for #<ActionView::Base:0xb7173088>) on line #21 of app/views/layouts/main.haml:
+18:           Ticket Conductor
+19:         .tag tickets please
+20:         .links
+21:           - unless current_user
+22:             = link_to "register", new_user_path
+23:           - if current_user
+24:             .right.small
+
+    app/views/layouts/main.haml:21:in `_run_haml_app47views47layouts47main46haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (135.1ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:49:22) [GET]
+Rendering template within layouts/main
+Rendering welcome/index
+
+ActionView::TemplateError (undefined local variable or method `current_user' for #<ActionView::Base:0xb702c418>) on line #21 of app/views/layouts/main.haml:
+18:           Ticket Conductor
+19:         .tag tickets please
+20:         .links
+21:           - unless current_user
+22:             = link_to "register", new_user_path
+23:           - if current_user
+24:             .right.small
+
+    app/views/layouts/main.haml:21:in `_run_haml_app47views47layouts47main46haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (94.6ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:49:38) [GET]
+Rendering template within layouts/main
+Rendering welcome/index
+
+ActionView::TemplateError (undefined local variable or method `current_user' for #<ActionView::Base:0xb7020780>) on line #21 of app/views/layouts/main.haml:
+18:           Ticket Conductor
+19:         .tag tickets please
+20:         .links
+21:           - unless current_user
+22:             = link_to "register", new_user_path
+23:           - if current_user
+24:             .right.small
+
+    app/views/layouts/main.haml:21:in `_run_haml_app47views47layouts47main46haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (362.1ms)
+Rendered rescues/_request_and_response (3.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:33) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;36;1mSQL (8.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NameError (undefined local variable or method `act_as_authentic' for #<Class:0xb6ffb930>):
+  app/models/user.rb:2
+  app/controllers/application_controller.rb:20:in `current_user_session'
+  app/controllers/application_controller.rb:25:in `current_user'
+  app/controllers/application_controller.rb:47:in `require_login'
+  haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (120.8ms)
+Rendered rescues/_request_and_response (2.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:52) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Load (12.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 80ms (DB: 13) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:52) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 43ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:53) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 56ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:53) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 35ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:53) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 40ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:53) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 30ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:53) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 277ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 44ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 39ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 35ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 37ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;36;1mUser Load (7.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 45ms (DB: 7) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 38ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 293ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 40ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 40ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 39ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 38ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 37ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 39ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:56:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 47ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-24 22:57:28) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+Rendering template within layouts/main
+Rendering welcome/index
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 91ms (View: 86, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-06-24 22:57:29) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom-theme/jquery-ui-1.7.1.custom.css" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-06-24 22:57:29) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/json.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-06-24 22:57:29) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.flot" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)

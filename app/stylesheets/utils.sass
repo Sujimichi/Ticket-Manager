@@ -1,0 +1,265 @@
+=clearfix
+  :overflow auto
+  :overflow -moz-scrollbars-none
+  // This makes ie6 get layout
+  :display inline-block
+  // and this puts it back to block
+  &
+    :display block
+
+=rounded
+  -moz-border-radius: 8px; -webkit-border-radius: 8px; }
+  +clearfix
+
+=widget
+  :padding 0.5em
+  :width 96%
+  :float left
+  +clearfix
+
+.widget
+  +widget
+  :border 0.1em solid black
+  :background-color #dddddd
+  :margin-bottom 10px
+  +rounded
+
+.soft_widget
+  +widget
+  :margin-bottom 10px
+
+
+.hanging_widget
+  +widget
+  :border-bottom 0.1em solid black
+  :border-left 0.1em solid black
+  :border-right 0.1em solid black
+  :background-color #dddddd
+  -moz-border-radius:  0px 0px 8px 8px; -webkit-border-radius-bottom: 8px; }
+
+.outer_widget
+  +widget
+  :margin
+    :top 5px
+    :left 10px
+
+
+=flash
+  &
+    :display block
+  :color #666666
+  :border 1px solid #397D02
+  :background-color #BCED91
+  :padding 10px
+  :text-align center
+  :margin
+    :left 10em
+    :right 10em
+
+
+.flash_error
+  +flash
+  :color #cc1111
+  :border 1px solid #ff8585
+  :background
+    :color #ffebeb
+  +rounded
+
+.flash_notice
+  +flash
+  +rounded
+
+
+
+.form_errors
+  :color #cc1111
+  :border 1px solid #ff8585
+  :background
+    :color #ffebeb
+  :padding 10px
+  :text-align left
+  :font-size 80%
+  :margin-bottom 1em
+  +rounded
+
+.inline_errors
+  :color #cc1111
+  :border 1px solid #ff8585
+  :background
+    :color #ffebeb
+  :padding 10px
+  :text-align center
+  :font-size 80%
+  :margin
+    :top 1em
+    :bottom 1em
+  +rounded
+
+.inline_notice
+  :color #666666
+  :border 1px solid #397D02
+  :background
+    :color #BCED91
+  :padding 10px
+  :text-align center
+  :font-size 80%
+  :margin
+    :top 1em
+    :bottom 1em
+  +rounded
+
+
+.two_col
+  :width 45%
+  :float left
+  :margin
+    :left 1.25%
+    :right 1.25%
+
+.split
+  :width 45%
+  :float left
+  :margin
+    :left 5px
+    :right 5px
+
+.centered
+  :width 45%
+  :margin 0 auto
+
+.clear
+  :display block
+  :clear both
+  :height 0
+  :width 0
+
+=label
+  :color darkblue
+  :font
+    :weight bold
+
+.label
+  +label
+
+.css_table
+  :display table-row
+  .label
+    :display table-cell
+    :padding-left 1em
+    +label
+  .value
+    :display table-cell
+    :padding-left 1em
+
+.movement_table
+  :display table-row
+  .label
+    :display table-cell
+    :padding-left 1em
+    +label
+  .value
+    :display table-cell
+    :border-bottom 1px dotted black
+    :padding
+      :left 1em
+      :bottom 5px
+      :top 5px
+
+.left
+  :float left
+
+.right
+  :float right
+
+.with_margin
+  :margin-left 1em
+
+.small
+  :font-size 80%
+
+.vsmall
+  :font-size 70%
+
+.big
+  :font-size 100%
+
+.inline
+  :display inline
+
+.hidden
+  :display none
+
+.inline_display
+  :width 70%
+  .label
+    :font
+      :weight bold
+    :color darkblue
+    :display inline
+  .value
+    :display inline
+
+
+#selectable
+  .ui-widget-content:hover
+    :background #cccccc
+  .ui-selected
+    :background #F39814
+  .ui-selecting
+    :background #FECA40
+  :list-style-type none
+  :margin 5px
+  :padding 5px
+  .ui-widget-content
+    :border 0px
+    :border-bottom 1px solid black
+    :margin 5px
+    :padding 0.3em
+    :font-size 80%
+    :min-height 10px
+
+a
+  .dp-choose-date
+    :float left
+    :width 16px
+    :height 16px
+    :display block
+    :overflow hidden
+
+    .dp-disabled
+      :cursor default
+    .dp-applied
+      :width 140px
+      :float left
+
+
+#gallery
+  :width 95%
+  :min-height 12em
+  :border 1px solid red
+  :padding 1%
+  +rounded
+  .inner
+    :font-size 100%
+    :width 500px
+    :padding 0.4em
+    :margin 0 0.4em 0.4em 0
+    .details
+      :font-size 60%
+    .in_herd_details
+    .in_select_details
+      :display none
+
+
+
+#trash
+  :width 95%
+  :min-height 18em
+  :padding 1%
+  .inner
+    :width 150px
+    :font-size 60%
+    :padding 0.4em
+    :margin 0 0.4em 0.4em 0
+    .in_herd_details
+      :display none

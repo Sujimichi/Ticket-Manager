@@ -1,4 +1,5 @@
 .DS_Store
+log/*.log
 coverage
 doc/diagram.png
 rav-debug.dot

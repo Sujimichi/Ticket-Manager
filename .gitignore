@@ -1,0 +1,15 @@
+.DS_Store
+coverage
+doc/diagram.png
+rav-debug.dot
+*~
+*.swp
+*.swo
+tmp/log
+tmp/*.sp*
+Thumbs.db
+ultrasphinx
+*.tmproj
+*.sqlite3
+public/images/my_fruity_graph.png
+

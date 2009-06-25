@@ -1,0 +1,9 @@
+.project_form
+  -form_for project do |f|
+    = f.error_messages
+
+    .css_table
+      .label= f.label :name
+      .value= f.text_field :name
+      .value
+        .project_submit_button= f.submit "Save"

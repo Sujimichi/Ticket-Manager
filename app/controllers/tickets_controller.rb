@@ -1,29 +1,28 @@
 class TicketsController < ApplicationController
-  
-  # GET /tickets
+  before_filter :assign_ticket, :only => [:show, :edit, :update, :destroy]
+
   def index
-    @tickets = Ticket.find(:all)
+    if params[:project_id]
+      @project = current_user.projects.find(params[:project_id])
+      @tickets = @project.tickets
+    else
+      @tickets = current_user.tickets
+    end
   end
 
-  # GET /tickets/1
   def show
-    @ticket = Ticket.find(params[:id])
   end
 
-  # GET /tickets/new
   def new
     @ticket = Ticket.new
   end
 
-  # GET /tickets/1/edit
+
   def edit
-    @ticket = Ticket.find(params[:id])
   end
 
-  # POST /tickets
   def create
-    @ticket = Ticket.new(params[:ticket])
-
+    @ticket = current_user.tickets.new(params[:ticket].merge!(:project_id => params[:project_id]))
     if @ticket.save
       flash[:notice] = 'Ticket was successfully created.'
       redirect_to :back
@@ -32,10 +31,7 @@ class TicketsController < ApplicationController
     end
   end
 
-  # PUT /tickets/1
   def update
-    @ticket = Ticket.find(params[:id])
-
     if @ticket.update_attributes(params[:ticket])
       flash[:notice] = 'Ticket was successfully updated.'
       redirect_to(@ticket)
@@ -44,9 +40,21 @@ class TicketsController < ApplicationController
     end
   end
 
-  # DELETE /tickets/1
   def destroy
-    Ticket.find(params[:id]).destroy
+    @ticket.destroy
     redirect_to(tickets_url)
   end
+
+
+  protected
+  
+  def assign_ticket
+    begin
+      @ticket = current_user.tickets.find(params[:id])
+    rescue
+      not_found!(tickets_path) 
+    end
+  end
+
+
 end

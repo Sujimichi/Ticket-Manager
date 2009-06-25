@@ -3,6 +3,7 @@ class CreateTickets < ActiveRecord::Migration
     create_table :tickets do |t|
       t.integer :number
       t.string :title
+      t.integer :project_id
 
     end
   end

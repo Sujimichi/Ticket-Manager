@@ -1,29 +1,17 @@
-%h1 Listing tickets
+#sub_heading.title= "Tickets for #{@project.name}"
 
-= link_to_function 'New ticket', :href => new_ticket_path, :id => 'new_ticket_link' do |page|
-  - page[:create_ticket].visual_effect :blind_down, :duration => 0.5
-  - page[:new_ticket_link].hide
-  - page[:cancel_new_ticket_link].visual_effect :appear
+.outer_widget
+  .left
+    .widget
+      = link_to_function 'New ticket', "$('#create_ticket').toggle('slow')"
+      #create_ticket{:style => 'display:none;'}
+        = render :partial => 'form', :locals => {:ticket => Ticket.new, :project => @project }
 
-= link_to_function 'Cancel', :href => new_ticket_path, :id => 'cancel_new_ticket_link', :style => "display:none;" do |page|
-  - page[:create_ticket].visual_effect :blind_up, :duration => 0.5
-  - page[:cancel_new_ticket_link].hide
-  - page[:new_ticket_link].visual_effect :appear
-
-#create_ticket{:style => 'display:none;'}
-  = render :partial => 'form', :locals => {:ticket => Ticket.new }
-
-%table{:width => "100%"}
-  %tr
-    %th Number
-    %th Title
-
-  -for ticket in @tickets
-    %tr
-      %td= h ticket.number
-      %td= h ticket.title
-
-    
-      %td= link_to 'Show', ticket_path(ticket)
-      %td= link_to 'Edit', edit_ticket_path(ticket)
-      %td= link_to 'Destroy', ticket_path(ticket), :method => :delete
+  - @tickets.each do |ticket|
+    .widget
+      .left
+        = ticket.number
+        = ticket.title
+      .right
+        = link_to 'Show', ticket_path(ticket)
+        = link_to 'Destroy', ticket_path(ticket), :method => :delete

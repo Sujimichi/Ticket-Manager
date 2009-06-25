@@ -1,12 +1,8 @@
 .ticket_form
   -form_for ticket do |f|
     = f.error_messages
-    
-    .attribute
-      .name= f.label :number
-      .value= f.text_field :number 
-    .attribute
-      .name= f.label :title
-      .value= f.text_field :title 
-    
+    = hidden_field_tag :project_id, project.id
+    .label= f.label :title
+    .value= f.text_field :title
+
     .ticket_submit_button= f.submit "Save"

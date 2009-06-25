@@ -1,0 +1,21 @@
+#sub_heading.title Listing projects
+
+.outer_widget
+  .left
+    .widget
+      = link_to_function 'New project', "$('#create_project').toggle('slow')"
+
+  .left.with_margin
+    #create_project{:style => 'display:none;', :class => 'widget'}
+      = render :partial => 'form', :locals => {:project => Project.new }
+  .clear
+
+  - @projects.each do |project|
+    .widget
+      .left
+        = project.name
+        -count = project.tickets.count
+        = link_to "#{count} Ticket#{'s' unless count.eql?(1)}", project_tickets_path(project)
+      .right
+        = link_to 'Show', project_path(project)
+        = link_to 'Destroy', project_path(project), :method => :delete

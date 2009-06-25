@@ -1,0 +1,9 @@
+#sub_heading.title=h @project.name
+
+.outer_widget
+  .widget
+    = link_to 'Back', projects_path
+    |
+    = link_to_function "Edit", "$('#update_project').toggle('slow')"
+    #update_project{:style => 'display:none;'}
+      = render :partial => 'form', :locals => {:project => @project }

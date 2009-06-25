@@ -7,7 +7,7 @@
       #create_ticket{:style => 'display:none;'}
         = render :partial => 'form', :locals => {:ticket => Ticket.new, :project => @project }
 
-  - @tickets.each do |ticket|
+  - @tickets.sort_by{|t| t.created_at}.each do |ticket|
     .widget
       .left
         = ticket.number

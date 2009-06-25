@@ -1,8 +1,11 @@
-.ticket_form
+.ticket_form{:style => 'padding:1em;'}
   -form_for ticket do |f|
     = f.error_messages
     = hidden_field_tag :project_id, project.id
     .label= f.label :title
-    .value= f.text_field :title
+    .inline.value= f.text_field :title
+
+    .label= f.label :details
+    .inline.value= text_area :details, nil ,{:cols => 70, :rows => 5}
 
     .ticket_submit_button= f.submit "Save"

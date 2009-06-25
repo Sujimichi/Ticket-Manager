@@ -5,6 +5,6 @@ class Project < ActiveRecord::Base
   has_many :tickets
 
   def next_num
-    self.tickets.map{|t| t.number}.max
+    [0,self.tickets.map{|t| t.number}].flatten.compact.max + 1
   end
 end

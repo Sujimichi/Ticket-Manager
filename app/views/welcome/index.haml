@@ -1,7 +1,16 @@
 
 - if current_user
-  Oh, ur back.
-
+  .centered{:style => 'margin-top:3em'}
+    .edged_widget
+      .title Current Projects
+      %ul
+        - current_user.projects.each do |project|
+          %li
+            %a{:href => "projects/#{project.id}/tickets"}
+              %div{:class => "project_list_item"}
+                .info_text
+                  = project.name
+                  .inline.small= "#{project.tickets.count} Tickets"
 
 - unless current_user
   #welcome_matt{:style => 'margin-top:3em'}

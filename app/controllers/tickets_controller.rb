@@ -22,7 +22,7 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = current_user.tickets.new(params[:ticket].merge!(:project_id => params[:project_id]))
+    @ticket = Ticket.new(params[:ticket].merge!(:project_id => params[:project_id]))
     if @ticket.save
       flash[:notice] = 'Ticket was successfully created.'
       redirect_to :back
@@ -41,8 +41,9 @@ class TicketsController < ApplicationController
   end
 
   def destroy
+    project = @ticket.project
     @ticket.destroy
-    redirect_to(tickets_url)
+    redirect_to(project_tickets_path(project))
   end
 
 
@@ -50,7 +51,7 @@ class TicketsController < ApplicationController
   
   def assign_ticket
     begin
-      @ticket = current_user.tickets.find(params[:id])
+      @ticket = Ticket.find(:first, :conditions => ["project_id IN (?) AND id = ?", current_user.projects.map{|p| p.id}, params[:id]])
     rescue
       not_found!(tickets_path) 
     end

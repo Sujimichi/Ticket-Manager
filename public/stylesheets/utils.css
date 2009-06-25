@@ -28,6 +28,24 @@
   .soft_widget {
     display: block; }
 
+.edged_widget {
+  padding: 0.5em;
+  width: 96%;
+  float: left;
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  display: inline-block;
+  border: 0.3em solid #0e1154;
+  padding: 1em;
+  -moz-border-radius: 8px; -webkit-border-radius: 8px; };
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  display: inline-block; }
+  .edged_widget {
+    display: block; }
+  .edged_widget {
+    display: block; }
+
 .hanging_widget {
   padding: 0.5em;
   width: 96%;

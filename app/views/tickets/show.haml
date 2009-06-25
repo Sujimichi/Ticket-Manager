@@ -1,13 +1,13 @@
 #ticket_show
   .attribute
     .name Number:
-    .value=h @ticket.number 
+    .value=h @ticket.number
   .attribute
     .name Title:
-    .value=h @ticket.title 
+    .value=h @ticket.title
 
 #update_ticket{:style => 'display:none;'}
-  = render :partial => 'form', :locals => {:ticket => @ticket }
+  = render :partial => 'form', :locals => {:ticket => @ticket, :project => @ticket.project }
 
 = link_to_function 'Edit', :href => edit_ticket_path(@ticket), :id => "edit_ticket_link" do |page|
   - page[:ticket_show].visual_effect :blind_up, :duration => 0.5

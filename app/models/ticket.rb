@@ -3,9 +3,10 @@ class Ticket < ActiveRecord::Base
   validates_presence_of :project
 
   def create
-    project = self.project
-    self.number = project.next_num
     super
+    project = self.project
+    self.update_attributes(:number => project.next_num)
+    self
   end
 
 end

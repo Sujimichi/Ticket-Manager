@@ -1,17 +1,24 @@
-#sub_heading.title= "Tickets for #{@project.name}"
+#tickets_index
+  #sub_heading.title= "Tickets for #{@project.name}"
 
-.outer_widget
-  .left
-    .widget
-      = link_to_function 'New ticket', "$('#create_ticket').toggle('slow')"
-      #create_ticket{:style => 'display:none;'}
-        = render :partial => 'form', :locals => {:ticket => Ticket.new, :project => @project }
+  .outer_widget
+    .left
+      .widget
+        = link_to_function 'New ticket', "$('#create_ticket').toggle('slow')"
+        #create_ticket{:style => 'display:none;'}
+          = render :partial => 'form', :locals => {:ticket => Ticket.new, :project => @project }
 
-  - @tickets.sort_by{|t| t.created_at}.each do |ticket|
-    .widget
-      .left
-        = ticket.number
-        = ticket.title
-      .right
-        = link_to 'Show', ticket_path(ticket)
-        = link_to 'Destroy', ticket_path(ticket), :method => :delete
+    .centered
+      - @tickets.sort_by{|t| t.created_at}.each do |ticket|
+        .ticket_widget
+          .heading
+            .number
+              = ticket.number
+              |
+              = ticket.created_at.to_date
+            .ticket_title= ticket.title
+            .links
+              = link_to 'Show', ticket_path(ticket)
+              = link_to 'Destroy', ticket_path(ticket), :method => :delete
+          .details
+            = ticket.details

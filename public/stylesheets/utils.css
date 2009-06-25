@@ -46,6 +46,24 @@
   .edged_widget {
     display: block; }
 
+.ticket_widget {
+  padding: 0.5em;
+  width: 96%;
+  float: left;
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  display: inline-block;
+  border: 0.3em solid #4f2fcc;
+  padding: 1em;
+  -moz-border-radius: 8px; -webkit-border-radius: 8px; };
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  display: inline-block; }
+  .ticket_widget {
+    display: block; }
+  .ticket_widget {
+    display: block; }
+
 .hanging_widget {
   padding: 0.5em;
   width: 96%;

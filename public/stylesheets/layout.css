@@ -110,3 +110,29 @@ h6 {
 #welcome_page .label {
   color: #706a6a;
   font-weight: bold; }
+
+#tickets_index .centered {
+  width: 70%; }
+#tickets_index .ticket_widget {
+  margin-bottom: 1em;
+  background-color: #abb4ed;
+  padding: 0em; }
+  #tickets_index .ticket_widget .heading {
+    padding: 0.5em 0.5em 0.2em 0.5em;
+    border-bottom: 1px solid black;
+    overflow: auto;
+    overflow: -moz-scrollbars-none;
+    display: inline-block; }
+    #tickets_index .ticket_widget .heading .number {
+      display: inline;
+      color: #4f2fcc;
+      float: left; }
+    #tickets_index .ticket_widget .heading .ticket_title {
+      float: left;
+      margin-left: 1em; }
+    #tickets_index .ticket_widget .heading .links {
+      float: right; }
+    #tickets_index .ticket_widget .heading {
+      display: block; }
+  #tickets_index .ticket_widget .details {
+    padding: 0.5em 1em 1em 1em; }

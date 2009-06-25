@@ -1,3 +1,12 @@
+=clearfix
+  :overflow auto
+  :overflow -moz-scrollbars-none
+  // This makes ie6 get layout
+  :display inline-block
+  // and this puts it back to block
+  &
+    :display block
+
 html
   :background-color #363232
   :min-width 1024px
@@ -123,3 +132,27 @@ h6
 
   .label
     +info_text
+
+#tickets_index
+  .centered
+    :width 70%
+  .ticket_widget
+    :margin-bottom 1em
+    :background-color #abb4ed
+    :padding 0em
+    .heading
+      :padding 0.5em 0.5em 0.2em 0.5em
+      :border-bottom 1px solid black
+      .number
+        :display inline
+        :color #4f2fcc
+        :float left
+      .ticket_title
+        :float left
+        :margin-left 1em
+      .links
+        :float right
+      +clearfix
+
+    .details
+      :padding 0.5em 1em 1em 1em

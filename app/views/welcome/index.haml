@@ -6,11 +6,21 @@
       %ul
         - current_user.projects.each do |project|
           %li
-            %a{:href => "projects/#{project.id}/tickets"}
+            %a{:href => "projects/#{project.id}/tickets", :onmouseover => "hover_on($(this))", :onmouseout => "hover_off($(this))"}
               %div{:class => "project_list_item"}
                 .info_text
                   = project.name
                   .inline.small= "#{project.tickets.count} Tickets"
+
+  :javascript
+    function hover_on(item){
+       item.animate({ fontSize: '120%', color: '#ff0000'});
+    };
+
+    function hover_off(item){
+       item.animate({ fontSize: '100%', color: '#706a6a'});
+    };
+
 
 - unless current_user
   #welcome_matt{:style => 'margin-top:3em'}

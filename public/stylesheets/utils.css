@@ -259,18 +259,6 @@
     font-size: 80%;
     min-height: 10px; }
 
-a .dp-choose-date {
-  float: left;
-  width: 16px;
-  height: 16px;
-  display: block;
-  overflow: hidden; }
-  a .dp-choose-date .dp-disabled {
-    cursor: default; }
-  a .dp-choose-date .dp-applied {
-    width: 140px;
-    float: left; }
-
 #gallery {
   width: 95%;
   min-height: 12em;

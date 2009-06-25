@@ -7,4 +7,9 @@ class User < ActiveRecord::Base
   def tickets
     Ticket.find(:all, :conditions => ["project_id IN (?)", self.projects.map{|p| p.id}])
   end
+
+
+  def active_projects
+    self.projects.find(:all, :conditions => {:active => true})
+  end
 end

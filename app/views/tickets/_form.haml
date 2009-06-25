@@ -1,3 +1,4 @@
+- project ||= nil
 
 .ticket_form{:style => 'padding:1em;'}
   -form_for ticket do |f|
@@ -5,13 +6,16 @@
     - if project && project.is_a?(Project)
       = hidden_field_tag :project_id, project.id
     - else
-      .label Ticket for Project:
-      = select_tag :project_id, options_for_select(current_user.projects.map{|p| [p.name, p.id]})
+      %p
+        .left.label Ticket for Project:
+        .right= select_tag :project_id, options_for_select(current_user.projects.map{|p| [p.name, p.id]})
+    .clear
+    %p
+      .left.label= f.label :title
+      .left.with_margin.inline.value= f.text_field :title
+    .clear
+    %p
+      .label= f.label :details
+      .inline.value= text_area :details, nil ,{:cols => 70, :rows => 5}
 
-    .label= f.label :title
-    .inline.value= f.text_field :title
-
-    .label= f.label :details
-    .inline.value= text_area :details, nil ,{:cols => 70, :rows => 5}
-
-    .ticket_submit_button= f.submit "Save"
+    .right.ticket_submit_button= f.submit "Save"

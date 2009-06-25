@@ -1,40 +1,46 @@
+#welcome_page
+  - if current_user
+    .centered{:style => 'margin-top:3em'}
+      .edged_widget
+        .inline.title Current Projects
+        .inline.small= link_to "manage", projects_path
+        %ul
+          - current_user.active_projects.each do |project|
+            %li
+              %a{:href => "projects/#{project.id}/tickets"}
+                .project_list_item{:onmouseover => "hover_on($(this))", :onmouseout => "hover_off($(this))"}
+                  .info_text
+                    = project.name
+                    .inline.small= "#{project.tickets.count} Tickets"
+        .right= link_to_function "add ticket", "$('#quick_ticket').toggle('slow')"
+        .clear
+        #quick_ticket.hidden
+          = render :partial => 'tickets/form', :locals => {:ticket => Ticket.new}
 
-- if current_user
-  .centered{:style => 'margin-top:3em'}
-    .edged_widget
-      .title Current Projects
-      %ul
-        - current_user.projects.each do |project|
-          %li
-            %a{:href => "projects/#{project.id}/tickets", :onmouseover => "hover_on($(this))", :onmouseout => "hover_off($(this))"}
-              %div{:class => "project_list_item"}
-                .info_text
-                  = project.name
-                  .inline.small= "#{project.tickets.count} Tickets"
+    :javascript
+      function hover_on(item){
+         hover_off($('.project_list_item'));
+         item.animate({ fontSize: '110%'}, 500);
+      };
 
-  :javascript
-    function hover_on(item){
-       item.animate({ fontSize: '120%', color: '#ff0000'});
-    };
-
-    function hover_off(item){
-       item.animate({ fontSize: '100%', color: '#706a6a'});
-    };
+      function hover_off(item){
+        item.animate({ fontSize: '100%'}, 500);
+      };
 
 
-- unless current_user
-  #welcome_matt{:style => 'margin-top:3em'}
-    .centered
-      .widget{:style => 'min-height:5em;', :id => 'login_widget'}
-        - form_for UserSession.new do |f|
-          - f.error_messages
-          %br
-          .css_table
-            .label= f.label :username
-            .value= f.text_field :username
-          .css_table
-            .label= f.label :password
-            .value= f.password_field :password
-          .clear
-          =f.submit("Login")
-          %br
+  - unless current_user
+    #welcome_matt{:style => 'margin-top:3em'}
+      .centered
+        .widget{:style => 'min-height:5em;', :id => 'login_widget'}
+          - form_for UserSession.new do |f|
+            - f.error_messages
+            %br
+            .css_table
+              .label= f.label :username
+              .value= f.text_field :username
+            .css_table
+              .label= f.label :password
+              .value= f.password_field :password
+            .clear
+            =f.submit("Login")
+            %br

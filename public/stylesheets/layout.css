@@ -71,12 +71,6 @@ h6 {
     float: right;
     padding-top: 15px;
     padding-right: 40px; }
-  #header #logo {
-    background-image: url(/images/millenium_top.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 120px;
-    width: 515px; }
 
 #content {
   min-height: 30em; }
@@ -111,26 +105,8 @@ h6 {
 .index_details {
   font-size: 80%; }
 
-.section_heading {
-  margin-bottom: 10px;
-  border-bottom: 2px solid black; }
-  .section_heading .title {
-    color: darkblue;
-    font-weight: bold;
-    font-size: 110%; }
-
-.section_content {
-  margin-left: 1em; }
-
-.controls {
-  margin-top: 1.5em;
-  float: left;
-  width: 25em; }
-  .controls .cancel {
-    float: left; }
-  .controls .next {
-    float: right; }
-
-.new_form_border {
-  border-bottom: 1px dotted black;
-  margin-bottom: 5px; }
+#welcome_page .project_list_item {
+  margin: 1em; }
+#welcome_page .label {
+  color: #706a6a;
+  font-weight: bold; }

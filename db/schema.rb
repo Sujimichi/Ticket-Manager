@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(:version => 20090624231959) do
   end
 
   create_table "projects", :force => true do |t|
-    t.string "name"
+    t.string   "name"
+    t.boolean  "active",     :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tickets", :force => true do |t|
@@ -27,6 +30,9 @@ ActiveRecord::Schema.define(:version => 20090624231959) do
     t.string   "title"
     t.text     "details"
     t.integer  "project_id"
+    t.boolean  "active",     :default => true
+    t.boolean  "on_hold",    :default => false
+    t.boolean  "invalid",    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

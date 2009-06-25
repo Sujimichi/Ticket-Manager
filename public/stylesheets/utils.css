@@ -35,7 +35,7 @@
   overflow: auto;
   overflow: -moz-scrollbars-none;
   display: inline-block;
-  border: 0.3em solid #0e1154;
+  border: 0.3em solid #4f2fcc;
   padding: 1em;
   -moz-border-radius: 8px; -webkit-border-radius: 8px; };
   overflow: auto;
@@ -232,15 +232,6 @@
 .hidden {
   display: none; }
 
-.inline_display {
-  width: 70%; }
-  .inline_display .label {
-    font-weight: bold;
-    color: darkblue;
-    display: inline; }
-  .inline_display .value {
-    display: inline; }
-
 #selectable {
   list-style-type: none;
   margin: 5px;
@@ -258,36 +249,3 @@
     padding: 0.3em;
     font-size: 80%;
     min-height: 10px; }
-
-#gallery {
-  width: 95%;
-  min-height: 12em;
-  border: 1px solid red;
-  padding: 1%;
-  -moz-border-radius: 8px; -webkit-border-radius: 8px; };
-  overflow: auto;
-  overflow: -moz-scrollbars-none;
-  display: inline-block; }
-  #gallery {
-    display: block; }
-  #gallery .inner {
-    font-size: 100%;
-    width: 500px;
-    padding: 0.4em;
-    margin: 0 0.4em 0.4em 0; }
-    #gallery .inner .details {
-      font-size: 60%; }
-    #gallery .inner .in_select_details {
-      display: none; }
-
-#trash {
-  width: 95%;
-  min-height: 18em;
-  padding: 1%; }
-  #trash .inner {
-    width: 150px;
-    font-size: 60%;
-    padding: 0.4em;
-    margin: 0 0.4em 0.4em 0; }
-    #trash .inner .in_herd_details {
-      display: none; }

@@ -9,7 +9,6 @@ class CreateTickets < ActiveRecord::Migration
       t.boolean :active, :default => true
       t.boolean :on_hold, :default => false
       t.boolean :invalid, :default => false
-      #THIS SHOULD BE DONE WITH MODEL
       
       t.timestamps
 

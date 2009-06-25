@@ -5,7 +5,12 @@ class CreateTickets < ActiveRecord::Migration
       t.string :title
       t.text :details
       t.integer :project_id
-
+      
+      t.boolean :active, :default => true
+      t.boolean :on_hold, :default => false
+      t.boolean :invalid, :default => false
+      #THIS SHOULD BE DONE WITH MODEL
+      
       t.timestamps
 
     end

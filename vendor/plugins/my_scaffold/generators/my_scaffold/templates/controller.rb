@@ -2,7 +2,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   before_filter :assign_<%= singular_name %>, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @<%= controller_plural_name %> = current_user.<%= singular_name.pluralise %>.find(:all)
+    @<%= controller_plural_name %> = current_user.<%= singular_name.pluralize %>.find(:all)
   end
 
   def show
@@ -17,7 +17,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   end
 
   def create
-    @<%= singular_name %> = current_user.<%= singular_name.pluralise %>.new(params[:<%= singular_name %>])
+    @<%= singular_name %> = current_user.<%= singular_name.pluralize %>.new(params[:<%= singular_name %>])
 
     if @<%= singular_name %>.save
       flash[:notice] = '<%= name.capitalize %> was successfully created.'

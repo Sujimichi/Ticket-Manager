@@ -59,10 +59,10 @@ h6
 
 #header
   :width 100%
-  :background-color #706a6a
+  :background-color #302559
   :min-width 1024px
   :min-height 3.5em
-  :border-bottom 5px solid black
+  :border-bottom 5px solid #4f2fcc
 
   .title
     :width 10em
@@ -132,6 +132,13 @@ h6
 
   .label
     +info_text
+  .widget
+    :min-height 5em
+    :border 0.4em solid #4f2fcc
+    :background-color transparent
+    .login_bttn
+      :float right
+
 
 #tickets_index
   .centered
@@ -140,6 +147,8 @@ h6
     :margin-bottom 1em
     :background-color #abb4ed
     :padding 0em
+    .details
+      :padding 0.5em 1em 1em 1em
     .heading
       :padding 0.5em 0.5em 0.2em 0.5em
       :border-bottom 1px solid black
@@ -153,6 +162,6 @@ h6
       .links
         :float right
       +clearfix
-
-    .details
-      :padding 0.5em 1em 1em 1em
+  .hanging_widget
+    :margin-left 1em
+    :padding-right 0em

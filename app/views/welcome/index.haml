@@ -31,7 +31,7 @@
   - unless current_user
     #welcome_matt{:style => 'margin-top:3em'}
       .centered
-        .widget{:style => 'min-height:5em;', :id => 'login_widget'}
+        .widget{:id => 'login_widget'}
           - form_for UserSession.new do |f|
             - f.error_messages
             %br
@@ -42,5 +42,5 @@
               .label= f.label :password
               .value= f.password_field :password
             .clear
-            =f.submit("Login")
+            .login_bttn=f.submit("Login")
             %br

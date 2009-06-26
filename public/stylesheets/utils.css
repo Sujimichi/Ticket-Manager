@@ -1,3 +1,15 @@
+.outer_widget {
+  padding: 0.5em;
+  width: 96%;
+  float: left;
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  display: inline-block;
+  margin-top: 5px;
+  margin-left: 10px; }
+  .outer_widget {
+    display: block; }
+
 .widget {
   padding: 0.5em;
   width: 96%;
@@ -71,24 +83,12 @@
   overflow: auto;
   overflow: -moz-scrollbars-none;
   display: inline-block;
-  border-bottom: 0.1em solid black;
-  border-left: 0.1em solid black;
-  border-right: 0.1em solid black;
-  background-color: #dddddd;
+  border-bottom: 0.2em solid #4f2fcc;
+  border-left: 0.2em solid #4f2fcc;
+  border-right: 0.2em solid #4f2fcc;
+  background-color: #abb4ed;
   -moz-border-radius: 0px 0px 8px 8px; -webkit-border-radius-bottom: 8px; }; }
   .hanging_widget {
-    display: block; }
-
-.outer_widget {
-  padding: 0.5em;
-  width: 96%;
-  float: left;
-  overflow: auto;
-  overflow: -moz-scrollbars-none;
-  display: inline-block;
-  margin-top: 5px;
-  margin-left: 10px; }
-  .outer_widget {
     display: block; }
 
 .flash_error {

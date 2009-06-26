@@ -1,20 +1,21 @@
 #tickets_index
-  #sub_heading.title= "#{@ticket_type.to_s.titlecase} Tickets for #{@project.name}"
+
+  .left
+    .hanging_widget
+      = link_to_function 'New ticket', "$('#create_ticket').toggle('slow')"
+
+      - types = [:active, :closed, :on_hold, :invalid] - [@ticket_type]
+      - links = {:active => link_to("Active", active_tickets_path(:project_id => @project.id)), :closed => link_to("Closed", closed_tickets_path(:project_id => @project.id)), :on_hold => link_to("On hold", on_hold_tickets_path(:project_id => @project.id)), :invalid => link_to("Invalid", invalid_tickets_path(:project_id => @project.id))}
+      - types.each do |key|
+        |
+        = links[key]
+      #create_ticket{:style => 'display:none;'}
+        = render :partial => 'form', :locals => {:ticket => Ticket.new, :project => @project }
+
+  .left.with_margin
+    #sub_heading.title= "#{@ticket_type.to_s.titlecase} Tickets for #{@project.name}"
 
   .outer_widget
-    .left
-      .widget
-        = link_to_function 'New ticket', "$('#create_ticket').toggle('slow')"
-
-        - types = [:active, :closed, :on_hold, :invalid] - [@ticket_type]
-        - links = {:active => link_to("Active", active_tickets_path(:project_id => @project.id)), :closed => link_to("Closed", closed_tickets_path(:project_id => @project.id)), :on_hold => link_to("On hold", on_hold_tickets_path(:project_id => @project.id)), :invalid => link_to("Invalid", invalid_tickets_path(:project_id => @project.id))}
-        - types.each do |key|
-          |
-          = links[key]
-
-
-        #create_ticket{:style => 'display:none;'}
-          = render :partial => 'form', :locals => {:ticket => Ticket.new, :project => @project }
 
     .centered
       - @tickets.sort_by{|t| t.created_at}.each do |ticket|
@@ -29,7 +30,7 @@
               = link_to 'Show', ticket_path(ticket)
               = link_to 'Destroy', ticket_path(ticket), :method => :delete
 
-              - [('open' unless ticket.active?), ('close' if ticket.active?), ('hold' unless ticket.on_hold?), ('invalidate' unless ticket.invalid?)].compact.each do |opt|
+              - [('open' if !ticket.active? || ticket.invalid? || ticket.on_hold?), ('close' if ticket.active?), ('hold' unless ticket.on_hold?), ('invalidate' unless ticket.invalid?)].compact.each do |opt|
                 = link_to_function opt, "#{opt}_ticket('#{ticket.id}')"
 
           .details

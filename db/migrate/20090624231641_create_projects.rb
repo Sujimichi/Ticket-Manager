@@ -3,6 +3,7 @@ class CreateProjects < ActiveRecord::Migration
     create_table :projects do |t|
       t.string :name
       t.text :info
+      t.string :url
       t.boolean :active, :default => true
       t.timestamps
     end

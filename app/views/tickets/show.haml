@@ -1,25 +1,33 @@
-#ticket_show
-  .attribute
-    .name Number:
-    .value=h @ticket.number
-  .attribute
-    .name Title:
-    .value=h @ticket.title
+.hanging_widget
+  = link_to_function 'Edit', "edit('#{@ticket.id}')", :id => "edit_ticket_link"
+  |
+  = link_to 'Back', tickets_path
 
-#update_ticket{:style => 'display:none;'}
-  = render :partial => 'form', :locals => {:ticket => @ticket, :project => @ticket.project }
+.clear
 
-= link_to_function 'Edit', :href => edit_ticket_path(@ticket), :id => "edit_ticket_link" do |page|
-  - page[:ticket_show].visual_effect :blind_up, :duration => 0.5
-  - page[:update_ticket].visual_effect :blind_down, :duration => 0.5
-  - page[:edit_ticket_link].hide
-  - page[:cancel_edit_ticket_link].visual_effect :appear
+#tickets_show
+  = hidden_field_tag :ticket_type, 'All'
+  .centered
+    #ticket_show
+      %div{:id => "ticket_id_#{@ticket.id}"}
+        = render :partial => 'tickets/widget', :locals => {:ticket => @ticket}
+    #update_ticket{:style => 'display:none;', :class => 'widget'}
+      = render :partial => 'form', :locals => {:ticket => @ticket, :project => @ticket.project }
 
-= link_to_function 'Cancel', :href => edit_ticket_path(@ticket), :id => 'cancel_edit_ticket_link', :style => "display:none;" do |page|
-  - page[:ticket_show].visual_effect :blind_down, :duration => 0.5
-  - page[:update_ticket].visual_effect :blind_up, :duration => 0.5
-  - page[:cancel_edit_ticket_link].hide
-  - page[:edit_ticket_link].visual_effect :appear
+    .widget
+      This is another widget for something else later (like comments)
 
-|
-= link_to 'Back', tickets_path
+
+:javascript
+  function edit(t_id){
+    var opt = $('#edit_ticket_link').html();
+    if (opt == 'Edit'){
+      $('#ticket_widget_id_' + t_id).hide('slow')
+      $('#update_ticket').show('slow')
+      $('#edit_ticket_link').html('Cancel');
+    }else{
+      $('#update_ticket').hide('slow')
+      $('#ticket_widget_id_' + t_id).show('slow')
+      $('#edit_ticket_link').html('Edit');
+    };
+  };

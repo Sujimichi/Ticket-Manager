@@ -160,6 +160,33 @@ h6 {
     #tickets_index .widget .heading {
       display: block; }
 
+#tickets_show .centered {
+  width: 70%; }
+#tickets_show #ticket_show {
+  margin-top: 2em; }
+  #tickets_show #ticket_show .widget {
+    margin-bottom: 1em;
+    background-color: #abb4ed; }
+    #tickets_show #ticket_show .widget .details {
+      padding: 0.5em 1em 1em 1em; }
+    #tickets_show #ticket_show .widget .heading {
+      padding: 0.5em 0.5em 0.2em 0.5em;
+      border-bottom: 1px solid black;
+      overflow: auto;
+      overflow: -moz-scrollbars-none;
+      display: inline-block; }
+      #tickets_show #ticket_show .widget .heading .number {
+        display: inline;
+        color: #4f2fcc;
+        float: left; }
+      #tickets_show #ticket_show .widget .heading .ticket_title {
+        float: left;
+        margin-left: 1em; }
+      #tickets_show #ticket_show .widget .heading .links {
+        float: right; }
+      #tickets_show #ticket_show .widget .heading {
+        display: block; }
+
 #projects_index .centered {
   width: 50%; }
 #projects_index .widget .heading {

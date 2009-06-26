@@ -20152,3 +20152,1530 @@ Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 15:58:
   [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 14:58:35', "high_priority" = 't' WHERE "id" = 1[0m
 Rendered tickets/_widget (1.8ms)
 Completed in 169ms (View: 3, DB: 3) | 200 OK [http://localhost/tickets/change_priority?id=1&priority=High]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:00:11) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (0.9ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '1') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+
+ActionView::TemplateError (undefined method `number' for #<Ticket:0x7fb2c622ec48>) on line #4 of app/views/tickets/show.haml:
+1: #ticket_show
+2:   .attribute
+3:     .name Number:
+4:     .value=h @ticket.number
+5:   .attribute
+6:     .name Title:
+7:     .value=h @ticket.title
+
+    app/views/tickets/show.haml:4:in `_run_haml_app47views47tickets47show46haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (51.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:00:30) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (0.8ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '1') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 4) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 67ms (View: 16, DB: 3) | 200 OK [http://localhost/tickets/1]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:01:29) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.5ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '1') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.8ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 4) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 70ms (View: 15, DB: 3) | 200 OK [http://localhost/tickets/1]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-26 20:02:07) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+Rendering template within layouts/main
+Rendering welcome/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1) AND ("projects"."active" = 't')) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "tickets" WHERE ("tickets".project_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "tickets" WHERE ("tickets".project_id = 3) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "tickets" WHERE ("tickets".project_id = 4) [0m
+  [4;35;1mProject Load (0.7ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (0.8ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+Rendered tickets/_form (8.8ms)
+Completed in 63ms (View: 55, DB: 3) | 200 OK [http://localhost/]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-06-26 20:02:12) [GET]
+  Parameters: {"ticket_type"=>:active, "project_id"=>"3", "action"=>"index", "controller"=>"tickets"}
+  [4;35;1mUser Load (2.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE ("projects"."id" = 3 AND (("project_users".user_id = 1))) [0m
+Rendering template within layouts/main
+Rendering tickets/index
+Rendered tickets/_form (4.3ms)
+  [4;35;1mTicket Load (0.4ms)[0m   [0mSELECT * FROM "tickets" WHERE ("tickets".project_id = 3) AND (("tickets"."on_hold" = 'f' AND "tickets"."invalid" = 'f' AND "tickets"."active" = 't') AND ("tickets".project_id = 3)) [0m
+Completed in 130ms (View: 16, DB: 3) | 200 OK [http://localhost/projects/3/active]
+
+
+Processing TicketsController#create (for 127.0.0.1 at 2009-06-26 20:02:28) [POST]
+  Parameters: {"ticket"=>{"details"=>"food needs to be given into their mouths ", "title"=>"Fish need food"}, "commit"=>"Save", "project_id"=>"3", "action"=>"create", "authenticity_token"=>"mauyn4wmWyZox0nfuo29WE6IJXqPbMKEP1f0HvvKmMQ=", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;36;1mTicket Create (0.4ms)[0m   [0;1mINSERT INTO "tickets" ("on_hold", "created_at", "title", "details", "project_id", "invalid", "high_priority", "updated_at", "active") VALUES('f', '2009-06-26 19:02:28', 'Fish need food', 'food needs to be given into their mouths ', 3, 'f', NULL, '2009-06-26 19:02:28', 't')[0m
+Redirected to http://localhost:3000/projects/3/active
+Completed in 60ms (DB: 1) | 302 Found [http://localhost/tickets]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-06-26 20:02:28) [GET]
+  Parameters: {"ticket_type"=>:active, "project_id"=>"3", "action"=>"index", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE ("projects"."id" = 3 AND (("project_users".user_id = 1))) [0m
+Rendering template within layouts/main
+Rendering tickets/index
+Rendered tickets/_form (4.4ms)
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE ("tickets".project_id = 3) AND (("tickets"."on_hold" = 'f' AND "tickets"."invalid" = 'f' AND "tickets"."active" = 't') AND ("tickets".project_id = 3)) [0m
+Rendered tickets/_widget (1.4ms)
+Completed in 133ms (View: 16, DB: 1) | 200 OK [http://localhost/projects/3/active]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:05:01) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.7ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.5ms)
+Completed in 69ms (View: 18, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:06:07) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.8ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.8ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 145ms (View: 18, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:06:10) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.2ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.8ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.5ms)
+Completed in 146ms (View: 12, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:06:15) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.1ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.9ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.5ms)
+Completed in 144ms (View: 16, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:07:44) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (1.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (4.8ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (1.9ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (11.0ms)
+  [4;36;1mProject Load (1.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (9.1ms)
+Completed in 226ms (View: 55, DB: 10) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:08:22) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.9ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (4.7ms)
+Completed in 66ms (View: 18, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:08:46) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"High", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:08:46', "high_priority" = 't' WHERE "id" = 5[0m
+Rendered tickets/_widget (2.6ms)
+Completed in 80ms (View: 4, DB: 3) | 200 OK [http://localhost/tickets/change_priority?id=5&priority=High]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:08:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.9ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 143ms (View: 12, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:09:00) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"Normal", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.1ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;36;1mTicket Update (0.4ms)[0m   [0;1mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:09:00', "high_priority" = NULL WHERE "id" = 5[0m
+Rendered tickets/_widget (1.8ms)
+Completed in 150ms (View: 3, DB: 3) | 200 OK [http://localhost/tickets/change_priority?id=5&priority=Normal]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:09:04) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.8ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (4.8ms)
+Completed in 64ms (View: 14, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:09:40) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+
+ActionView::TemplateError (undefined local variable or method `ticket' for #<ActionView::Base:0x7fb2c64ee208>) on line #4 of app/views/tickets/show.haml:
+1: #tickets_show
+2:   .centered
+3:     #ticket
+4:       %div{:id => "ticket_id_#{ticket.id}"}
+5:         = render :partial => 'tickets/widget', :locals => {:ticket => @ticket}
+6: 
+7: 
+
+    app/views/tickets/show.haml:4:in `_run_haml_app47views47tickets47show46haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (179.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:09:46) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (3.3ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.5ms)
+Completed in 70ms (View: 16, DB: 5) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#change_status (for 127.0.0.1 at 2009-06-26 20:09:48) [GET]
+  Parameters: {"change_to"=>"closed", "action"=>"change_status", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;36;1mTicket Update (0.4ms)[0m   [0;1mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:09:48', "active" = 'f' WHERE "id" = 5[0m
+Rendered tickets/_widget (1.7ms)
+Completed in 90ms (View: 3, DB: 3) | 200 OK [http://localhost/tickets/change_status?id=5&change_to=closed]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:09:53) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (2.3ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (6.5ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (8.2ms)
+  [4;35;1mProject Load (1.9ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (10.6ms)
+Completed in 301ms (View: 36, DB: 12) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:09:56) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"High", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:09:56', "high_priority" = 't' WHERE "id" = 5[0m
+Rendered tickets/_widget (1.9ms)
+Completed in 80ms (View: 4, DB: 3) | 200 OK [http://localhost/tickets/change_priority?id=5&priority=High]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:10:00) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"Low", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (1.3ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (1.1ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;36;1mProject Load (1.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:10:00', "high_priority" = 'f' WHERE "id" = 5[0m
+Rendered tickets/_widget (1.9ms)
+Completed in 175ms (View: 4, DB: 6) | 200 OK [http://localhost/tickets/change_priority?id=5&priority=Low]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:10:01) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"Normal", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;36;1mProject Load (0.8ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:10:01', "high_priority" = NULL WHERE "id" = 5[0m
+Rendered tickets/_widget (1.7ms)
+Completed in 94ms (View: 3, DB: 4) | 200 OK [http://localhost/tickets/change_priority?id=5&priority=Normal]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:10:03) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"High", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:10:03', "high_priority" = 't' WHERE "id" = 5[0m
+Rendered tickets/_widget (1.8ms)
+Completed in 150ms (View: 3, DB: 3) | 200 OK [http://localhost/tickets/change_priority?id=5&priority=High]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:10:05) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"Normal", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:10:05', "high_priority" = NULL WHERE "id" = 5[0m
+Rendered tickets/_widget (1.7ms)
+Completed in 88ms (View: 3, DB: 3) | 200 OK [http://localhost/tickets/change_priority?id=5&priority=Normal]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:10:08) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"Low", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.1ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:10:08', "high_priority" = 'f' WHERE "id" = 5[0m
+Rendered tickets/_widget (2.5ms)
+Completed in 158ms (View: 4, DB: 3) | 200 OK [http://localhost/tickets/change_priority?id=5&priority=Low]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:10:10) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"High", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:10:10', "high_priority" = 't' WHERE "id" = 5[0m
+Rendered tickets/_widget (2.5ms)
+Completed in 104ms (View: 5, DB: 3) | 200 OK [http://localhost/tickets/change_priority?id=5&priority=High]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:10:11) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"Low", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:10:11', "high_priority" = 'f' WHERE "id" = 5[0m
+Rendered tickets/_widget (2.3ms)
+Completed in 245ms (View: 3, DB: 3) | 200 OK [http://localhost/tickets/change_priority?id=5&priority=Low]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:10:13) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"High", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:10:13', "high_priority" = 't' WHERE "id" = 5[0m
+Rendered tickets/_widget (1.8ms)
+Completed in 126ms (View: 3, DB: 3) | 200 OK [http://localhost/tickets/change_priority?id=5&priority=High]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:10:18) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"Low", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:10:18', "high_priority" = 'f' WHERE "id" = 5[0m
+Rendered tickets/_widget (1.8ms)
+Completed in 62ms (View: 3, DB: 3) | 200 OK [http://localhost/tickets/change_priority?id=5&priority=Low]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:10:21) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"High", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (3.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:10:21', "high_priority" = 't' WHERE "id" = 5[0m
+Rendered tickets/_widget (1.8ms)
+Completed in 84ms (View: 3, DB: 6) | 200 OK [http://localhost/tickets/change_priority?id=5&priority=High]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:10:23) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"Normal", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (1.9ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.9ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:10:23', "high_priority" = NULL WHERE "id" = 5[0m
+Rendered tickets/_widget (6.8ms)
+Completed in 173ms (View: 8, DB: 7) | 200 OK [http://localhost/tickets/change_priority?id=5&priority=Normal]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:11:08) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (4.7ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.6ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.6ms)
+Completed in 159ms (View: 98, DB: 8) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#change_status (for 127.0.0.1 at 2009-06-26 20:11:12) [GET]
+  Parameters: {"change_to"=>"active", "action"=>"change_status", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;36;1mTicket Update (0.4ms)[0m   [0;1mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:11:12', "active" = 't' WHERE "id" = 5[0m
+Rendered tickets/_widget (2.5ms)
+Completed in 75ms (View: 4, DB: 3) | 200 OK [http://localhost/tickets/change_status?id=5&change_to=active]
+
+
+Processing TicketsController#change_status (for 127.0.0.1 at 2009-06-26 20:11:13) [GET]
+  Parameters: {"change_to"=>"on hold", "action"=>"change_status", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;36;1mTicket Update (0.4ms)[0m   [0;1mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:11:13', "on_hold" = 't' WHERE "id" = 5[0m
+Rendered tickets/_widget (4.0ms)
+Completed in 63ms (View: 5, DB: 4) | 200 OK [http://localhost/tickets/change_status?id=5&change_to=on+hold]
+
+
+Processing TicketsController#change_status (for 127.0.0.1 at 2009-06-26 20:11:15) [GET]
+  Parameters: {"change_to"=>"active", "action"=>"change_status", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.6ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+  [4;35;1mProject Load (2.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+  [4;36;1mTicket Update (0.4ms)[0m   [0;1mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:11:15', "on_hold" = 'f' WHERE "id" = 5[0m
+Rendered tickets/_widget (1.8ms)
+Completed in 184ms (View: 3, DB: 5) | 200 OK [http://localhost/tickets/change_status?id=5&change_to=active]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-06-26 20:11:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4)) [0m
+Rendering template within layouts/main
+Rendering tickets/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #9 of app/views/tickets/index.haml:
+6:       |
+7:       = link_to "All Tickets", project_tickets_path(@project)
+8:       - types = [:active, :closed, :on_hold, :invalid] - [@ticket_type]
+9:       - links = {:active => link_to("Active", active_tickets_path(:project_id => @project.id)), :closed => link_to("Closed", closed_tickets_path(:project_id => @project.id)), :on_hold => link_to("On hold", on_hold_tickets_path(:project_id => @project.id)), :invalid => link_to("Invalid", invalid_tickets_path(:project_id => @project.id))}
+10:       - types.each do |key|
+11:         |
+12:         = links[key]
+
+    app/views/tickets/index.haml:9:in `_run_haml_app47views47tickets47index46haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (101.8ms)
+Rendered rescues/_request_and_response (1.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-06-26 20:11:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4)) [0m
+Rendering template within layouts/main
+Rendering tickets/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #9 of app/views/tickets/index.haml:
+6:       |
+7:       = link_to "All Tickets", project_tickets_path(@project)
+8:       - types = [:active, :closed, :on_hold, :invalid] - [@ticket_type]
+9:       - links = {:active => link_to("Active", active_tickets_path(:project_id => @project.id)), :closed => link_to("Closed", closed_tickets_path(:project_id => @project.id)), :on_hold => link_to("On hold", on_hold_tickets_path(:project_id => @project.id)), :invalid => link_to("Invalid", invalid_tickets_path(:project_id => @project.id))}
+10:       - types.each do |key|
+11:         |
+12:         = links[key]
+
+    app/views/tickets/index.haml:9:in `_run_haml_app47views47tickets47index46haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (45.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-06-26 20:11:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4)) [0m
+Rendering template within layouts/main
+Rendering tickets/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #9 of app/views/tickets/index.haml:
+6:       |
+7:       = link_to "All Tickets", project_tickets_path(@project)
+8:       - types = [:active, :closed, :on_hold, :invalid] - [@ticket_type]
+9:       - links = {:active => link_to("Active", active_tickets_path(:project_id => @project.id)), :closed => link_to("Closed", closed_tickets_path(:project_id => @project.id)), :on_hold => link_to("On hold", on_hold_tickets_path(:project_id => @project.id)), :invalid => link_to("Invalid", invalid_tickets_path(:project_id => @project.id))}
+10:       - types.each do |key|
+11:         |
+12:         = links[key]
+
+    app/views/tickets/index.haml:9:in `_run_haml_app47views47tickets47index46haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (45.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-06-26 20:24:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (2.7ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4)) [0m
+Rendering template within layouts/main
+Rendering tickets/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #9 of app/views/tickets/index.haml:
+6:       |
+7:       = link_to "All Tickets", project_tickets_path(@project)
+8:       - types = [:active, :closed, :on_hold, :invalid] - [@ticket_type]
+9:       - links = {:active => link_to("Active", active_tickets_path(:project_id => @project.id)), :closed => link_to("Closed", closed_tickets_path(:project_id => @project.id)), :on_hold => link_to("On hold", on_hold_tickets_path(:project_id => @project.id)), :invalid => link_to("Invalid", invalid_tickets_path(:project_id => @project.id))}
+10:       - types.each do |key|
+11:         |
+12:         = links[key]
+
+    app/views/tickets/index.haml:9:in `_run_haml_app47views47tickets47index46haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (50.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:24:18) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.5ms)
+Completed in 147ms (View: 14, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:31:01) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.7ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.1ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (3.9ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 62ms (View: 13, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:31:40) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.3ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.7ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.9ms)
+  [4;35;1mProject Load (0.7ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (3.1ms)
+Completed in 89ms (View: 21, DB: 4) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:32:15) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 82ms (View: 16, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:33:02) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (1.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;35;1mProject Load (23.7ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (3.1ms)
+Completed in 200ms (View: 105, DB: 27) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:33:35) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.5ms)
+Completed in 63ms (View: 11, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:34:07) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.5ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 69ms (View: 19, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:34:29) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.7ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 71ms (View: 19, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:34:32) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 198ms (View: 14, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:34:50) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.1ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (3.2ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (5.4ms)
+Completed in 562ms (View: 34, DB: 6) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:35:08) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.8ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.5ms)
+Completed in 295ms (View: 74, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:35:20) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (2.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.8ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (4.9ms)
+Completed in 147ms (View: 20, DB: 5) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:36:00) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (3.7ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (4.8ms)
+Completed in 145ms (View: 21, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:37:13) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.6ms)
+Completed in 144ms (View: 92, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:38:14) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;35;1mProject Load (47.9ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (106.6ms)
+Completed in 290ms (View: 118, DB: 50) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:38:42) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.5ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.3ms)
+Completed in 74ms (View: 19, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:38:50) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.7ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.5ms)
+Completed in 75ms (View: 20, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:38:59) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.5ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.5ms)
+Completed in 69ms (View: 11, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:39:04) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.5ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 66ms (View: 12, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:39:17) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.5ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 72ms (View: 17, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:39:18) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 67ms (View: 12, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:39:39) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.5ms)
+Completed in 200ms (View: 31, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:39:45) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.5ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.5ms)
+Completed in 150ms (View: 19, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:39:54) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.6ms)
+Completed in 149ms (View: 17, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:40:07) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;35;1mProject Load (2.7ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.5ms)
+Completed in 147ms (View: 17, DB: 5) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:40:40) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (1.5ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (3.1ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (1.2ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (5.3ms)
+Completed in 388ms (View: 41, DB: 7) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:40:53) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (4.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (3.3ms)
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (246.0ms)
+Completed in 362ms (View: 301, DB: 6) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:41:18) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (2.8ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.5ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.3ms)
+Completed in 71ms (View: 16, DB: 5) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:41:32) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.5ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 75ms (View: 20, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:41:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.7ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (4.8ms)
+Completed in 73ms (View: 19, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:41:57) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (1.0ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 72ms (View: 17, DB: 3) | 200 OK [http://localhost/tickets/5]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:42:07) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.0ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (2,3,4)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (2,3,4) AND id = '5') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.6ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 69ms (View: 12, DB: 3) | 200 OK [http://localhost/tickets/5]
+  [4;36;1mTicket Load (0.6ms)[0m   [0;1mSELECT * FROM "tickets" LIMIT 1[0m
+  [4;35;1mComment Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: comments: SELECT * FROM "comments" WHERE ("comments".ticket_id = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.2ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTickets (20090624202420)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "tickets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "details" text, "project_id" integer, "active" boolean DEFAULT 't', "on_hold" boolean DEFAULT 'f', "invalid" boolean DEFAULT 'f', "high_priority" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090624202420')[0m
+Migrating to CreateUsers (20090624204942)
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'kat@kat.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'kat') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'b82e9622e4c380a8bcecf7507231c957432e17fff2e8c2e2d9da66d5ee1bc322f97820e4ee4c3fae975f4d25f062e383a15ea137ef28bc2918bf9b56fd65f102') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("created_at", "crypted_password", "updated_at", "username", "password_salt", "persistence_token", "email") VALUES('2009-06-26 19:47:45', '4c561aadb108782e6ee6eac99b8cf3cb70846de89dd387f644a83ef4d0f4db6274d12887289fd23c82c4a803ce718d58e2e64716f2ba20dcbd9859ca2efbb09a', '2009-06-26 19:47:45', 'Kat', 'ibaYbrglxTH1w_T7Bg58', 'b82e9622e4c380a8bcecf7507231c957432e17fff2e8c2e2d9da66d5ee1bc322f97820e4ee4c3fae975f4d25f062e383a15ea137ef28bc2918bf9b56fd65f102', 'kat@kat.com')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090624204942')[0m
+Migrating to CreateProjects (20090624231641)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "url" varchar(255), "active" boolean DEFAULT 't', "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090624231641')[0m
+Migrating to CreateProjectUsers (20090624231959)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "project_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "project_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090624231959')[0m
+Migrating to CreateComments (20090626194421)
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "ticket_id" integer, "text" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090626194421')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("comments")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("project_users")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("projects")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("tickets")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-26 20:47:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+Rendering template within layouts/main
+Rendering welcome/index
+  [4;35;1mUser Load (6.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (3.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 124ms (View: 106, DB: 9) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-06-26 20:47:49) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"username"=>"kat", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"mauyn4wmWyZox0nfuo29WE6IJXqPbMKEP1f0HvvKmMQ=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".username) = 'kat') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 37ms (DB: 0) | 302 Found [http://localhost/user_sessions]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-26 20:47:49) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+Rendering template within layouts/main
+Rendering welcome/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1) AND ("projects"."active" = 't')) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+Rendered tickets/_form (7.5ms)
+Completed in 216ms (View: 93, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-06-26 20:47:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering projects/index
+Rendered projects/_form (5.7ms)
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+Completed in 50ms (View: 20, DB: 1) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#create (for 127.0.0.1 at 2009-06-26 20:47:56) [POST]
+  Parameters: {"commit"=>"Save", "action"=>"create", "authenticity_token"=>"mauyn4wmWyZox0nfuo29WE6IJXqPbMKEP1f0HvvKmMQ=", "project"=>{"name"=>"Farm Manager"}, "controller"=>"projects"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Create (0.4ms)[0m   [0;1mINSERT INTO "projects" ("name", "created_at", "updated_at", "url", "info", "active") VALUES('Farm Manager', '2009-06-26 19:47:56', '2009-06-26 19:47:56', NULL, NULL, 't')[0m
+  [4;35;1mProjectUser Create (1.0ms)[0m   [0mINSERT INTO "project_users" ("created_at", "project_id", "updated_at", "user_id") VALUES('2009-06-26 19:47:56', 1, '2009-06-26 19:47:56', 1)[0m
+Redirected to http://localhost:3000/projects
+Completed in 59ms (DB: 2) | 302 Found [http://localhost/projects]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-06-26 20:47:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering projects/index
+Rendered projects/_form (3.3ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (0.2ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "tickets" WHERE ("tickets".project_id = 1) [0m
+Completed in 53ms (View: 27, DB: 1) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#create (for 127.0.0.1 at 2009-06-26 20:48:06) [POST]
+  Parameters: {"commit"=>"Save", "action"=>"create", "authenticity_token"=>"mauyn4wmWyZox0nfuo29WE6IJXqPbMKEP1f0HvvKmMQ=", "project"=>{"name"=>"Llama Tracker 5000"}, "controller"=>"projects"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Create (0.4ms)[0m   [0mINSERT INTO "projects" ("name", "created_at", "updated_at", "url", "info", "active") VALUES('Llama Tracker 5000', '2009-06-26 19:48:06', '2009-06-26 19:48:06', NULL, NULL, 't')[0m
+  [4;36;1mProjectUser Create (0.3ms)[0m   [0;1mINSERT INTO "project_users" ("created_at", "project_id", "updated_at", "user_id") VALUES('2009-06-26 19:48:06', 2, '2009-06-26 19:48:06', 1)[0m
+Redirected to http://localhost:3000/projects
+Completed in 55ms (DB: 1) | 302 Found [http://localhost/projects]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-06-26 20:48:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering projects/index
+Rendered projects/_form (3.3ms)
+  [4;36;1mProject Load (0.5ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (0.2ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (1,2)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "tickets" WHERE ("tickets".project_id = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "tickets" WHERE ("tickets".project_id = 2) [0m
+Completed in 55ms (View: 29, DB: 2) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#create (for 127.0.0.1 at 2009-06-26 20:48:13) [POST]
+  Parameters: {"commit"=>"Save", "action"=>"create", "authenticity_token"=>"mauyn4wmWyZox0nfuo29WE6IJXqPbMKEP1f0HvvKmMQ=", "project"=>{"name"=>"Fish moniter"}, "controller"=>"projects"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Create (0.4ms)[0m   [0mINSERT INTO "projects" ("name", "created_at", "updated_at", "url", "info", "active") VALUES('Fish moniter', '2009-06-26 19:48:13', '2009-06-26 19:48:13', NULL, NULL, 't')[0m
+  [4;36;1mProjectUser Create (0.6ms)[0m   [0;1mINSERT INTO "project_users" ("created_at", "project_id", "updated_at", "user_id") VALUES('2009-06-26 19:48:13', 3, '2009-06-26 19:48:13', 1)[0m
+Redirected to http://localhost:3000/projects
+Completed in 59ms (DB: 1) | 302 Found [http://localhost/projects]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-06-26 20:48:13) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering projects/index
+Rendered projects/_form (3.3ms)
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (0.2ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (1,2,3)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "tickets" WHERE ("tickets".project_id = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "tickets" WHERE ("tickets".project_id = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "tickets" WHERE ("tickets".project_id = 3) [0m
+Completed in 57ms (View: 31, DB: 2) | 200 OK [http://localhost/projects]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-06-26 20:48:17) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE ("projects"."id" = 1 AND (("project_users".user_id = 1))) [0m
+Rendering template within layouts/main
+Rendering tickets/index
+Rendered tickets/_form (5.4ms)
+  [4;35;1mTicket Load (0.2ms)[0m   [0mSELECT * FROM "tickets" WHERE ("tickets".project_id = 1) [0m
+Completed in 93ms (View: 15, DB: 1) | 200 OK [http://localhost/projects/1/tickets]
+
+
+Processing TicketsController#create (for 127.0.0.1 at 2009-06-26 20:48:47) [POST]
+  Parameters: {"ticket"=>{"details"=>"Things are generally everything", "title"=>"This is a ticket about things"}, "commit"=>"Save", "project_id"=>"1", "action"=>"create", "authenticity_token"=>"mauyn4wmWyZox0nfuo29WE6IJXqPbMKEP1f0HvvKmMQ=", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mTicket Create (0.4ms)[0m   [0;1mINSERT INTO "tickets" ("on_hold", "created_at", "title", "details", "project_id", "invalid", "high_priority", "updated_at", "active") VALUES('f', '2009-06-26 19:48:47', 'This is a ticket about things', 'Things are generally everything', 1, 'f', NULL, '2009-06-26 19:48:47', 't')[0m
+Redirected to http://localhost:3000/projects/1/tickets
+Completed in 64ms (DB: 1) | 302 Found [http://localhost/tickets]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-06-26 20:48:47) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE ("projects"."id" = 1 AND (("project_users".user_id = 1))) [0m
+Rendering template within layouts/main
+Rendering tickets/index
+Rendered tickets/_form (4.4ms)
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE ("tickets".project_id = 1) [0m
+Rendered tickets/_widget (3.9ms)
+Completed in 133ms (View: 18, DB: 1) | 200 OK [http://localhost/projects/1/tickets]
+
+
+Processing TicketsController#create (for 127.0.0.1 at 2009-06-26 20:48:58) [POST]
+  Parameters: {"ticket"=>{"details"=>"asdasdasdasd", "title"=>"asdasd"}, "commit"=>"Save", "project_id"=>"1", "action"=>"create", "authenticity_token"=>"mauyn4wmWyZox0nfuo29WE6IJXqPbMKEP1f0HvvKmMQ=", "controller"=>"tickets"}
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (1.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mTicket Create (0.4ms)[0m   [0;1mINSERT INTO "tickets" ("on_hold", "created_at", "title", "details", "project_id", "invalid", "high_priority", "updated_at", "active") VALUES('f', '2009-06-26 19:48:58', 'asdasd', 'asdasdasdasd', 1, 'f', NULL, '2009-06-26 19:48:58', 't')[0m
+Redirected to http://localhost:3000/projects/1/tickets
+Completed in 89ms (DB: 3) | 302 Found [http://localhost/tickets]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-06-26 20:48:58) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE ("projects"."id" = 1 AND (("project_users".user_id = 1))) [0m
+Rendering template within layouts/main
+Rendering tickets/index
+Rendered tickets/_form (4.6ms)
+  [4;35;1mTicket Load (0.6ms)[0m   [0mSELECT * FROM "tickets" WHERE ("tickets".project_id = 1) [0m
+Rendered tickets/_widget (3.9ms)
+Rendered tickets/_widget (1.4ms)
+Completed in 140ms (View: 21, DB: 1) | 200 OK [http://localhost/projects/1/tickets]
+
+
+Processing TicketsController#create (for 127.0.0.1 at 2009-06-26 20:49:02) [POST]
+  Parameters: {"ticket"=>{"details"=>"asdasdasdasd", "title"=>"adasd"}, "commit"=>"Save", "project_id"=>"1", "action"=>"create", "authenticity_token"=>"mauyn4wmWyZox0nfuo29WE6IJXqPbMKEP1f0HvvKmMQ=", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mTicket Create (0.4ms)[0m   [0;1mINSERT INTO "tickets" ("on_hold", "created_at", "title", "details", "project_id", "invalid", "high_priority", "updated_at", "active") VALUES('f', '2009-06-26 19:49:02', 'adasd', 'asdasdasdasd', 1, 'f', NULL, '2009-06-26 19:49:02', 't')[0m
+Redirected to http://localhost:3000/projects/1/tickets
+Completed in 80ms (DB: 1) | 302 Found [http://localhost/tickets]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-06-26 20:49:02) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE ("projects"."id" = 1 AND (("project_users".user_id = 1))) [0m
+Rendering template within layouts/main
+Rendering tickets/index
+Rendered tickets/_form (90.9ms)
+  [4;35;1mTicket Load (0.7ms)[0m   [0mSELECT * FROM "tickets" WHERE ("tickets".project_id = 1) [0m
+Rendered tickets/_widget (4.6ms)
+Rendered tickets/_widget (1.4ms)
+Rendered tickets/_widget (1.4ms)
+Completed in 153ms (View: 114, DB: 2) | 200 OK [http://localhost/projects/1/tickets]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:49:06) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"High", "id"=>"1", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (0.7ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (1,2,3)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (1,2,3) AND id = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:49:06', "high_priority" = 't' WHERE "id" = 1[0m
+Rendered tickets/_widget (2.9ms)
+Completed in 89ms (View: 6, DB: 3) | 200 OK [http://localhost/tickets/change_priority?id=1&priority=High]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:49:09) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"Normal", "id"=>"1", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (0.8ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (1,2,3)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (1,2,3) AND id = '1') LIMIT 1[0m
+  [4;36;1mProject Load (1.9ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:49:09', "high_priority" = NULL WHERE "id" = 1[0m
+Rendered tickets/_widget (2.8ms)
+Completed in 193ms (View: 6, DB: 5) | 200 OK [http://localhost/tickets/change_priority?id=1&priority=Normal]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:49:14) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"Low", "id"=>"1", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (0.7ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (1,2,3)) [0m
+  [4;35;1mTicket Load (2.0ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (1,2,3) AND id = '1') LIMIT 1[0m
+  [4;36;1mProject Load (1.8ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mTicket Update (1.1ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:49:14', "high_priority" = 'f' WHERE "id" = 1[0m
+Rendered tickets/_widget (8.0ms)
+Completed in 144ms (View: 15, DB: 7) | 200 OK [http://localhost/tickets/change_priority?id=1&priority=Low]
+
+
+Processing TicketsController#change_priority (for 127.0.0.1 at 2009-06-26 20:49:22) [GET]
+  Parameters: {"action"=>"change_priority", "priority"=>"Normal", "id"=>"1", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (0.8ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (1,2,3)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (1,2,3) AND id = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:49:22', "high_priority" = NULL WHERE "id" = 1[0m
+Rendered tickets/_widget (1.8ms)
+Completed in 167ms (View: 3, DB: 3) | 200 OK [http://localhost/tickets/change_priority?id=1&priority=Normal]
+
+
+Processing TicketsController#change_status (for 127.0.0.1 at 2009-06-26 20:49:33) [GET]
+  Parameters: {"change_to"=>"closed", "action"=>"change_status", "id"=>"2", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (1.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.7ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (1,2,3)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (1,2,3) AND id = '2') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:49:33', "active" = 'f' WHERE "id" = 2[0m
+Rendered tickets/_widget (4.6ms)
+Completed in 108ms (View: 7, DB: 5) | 200 OK [http://localhost/tickets/change_status?id=2&change_to=closed]
+
+
+Processing TicketsController#change_status (for 127.0.0.1 at 2009-06-26 20:49:36) [GET]
+  Parameters: {"change_to"=>"active", "action"=>"change_status", "id"=>"2", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (2.2ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (0.8ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (1,2,3)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (1,2,3) AND id = '2') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:49:36', "active" = 't' WHERE "id" = 2[0m
+Rendered tickets/_widget (1.8ms)
+Completed in 274ms (View: 3, DB: 5) | 200 OK [http://localhost/tickets/change_status?id=2&change_to=active]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-06-26 20:49:40) [GET]
+  Parameters: {"ticket_type"=>:active, "project_id"=>"1", "action"=>"index", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE ("projects"."id" = 1 AND (("project_users".user_id = 1))) [0m
+Rendering template within layouts/main
+Rendering tickets/index
+Rendered tickets/_form (9.7ms)
+  [4;36;1mTicket Load (0.9ms)[0m   [0;1mSELECT * FROM "tickets" WHERE ("tickets".project_id = 1) AND (("tickets"."on_hold" = 'f' AND "tickets"."invalid" = 'f' AND "tickets"."active" = 't') AND ("tickets".project_id = 1)) [0m
+Rendered tickets/_widget (1.4ms)
+Rendered tickets/_widget (2.4ms)
+Rendered tickets/_widget (2.4ms)
+Completed in 87ms (View: 35, DB: 2) | 200 OK [http://localhost/projects/1/active]
+
+
+Processing TicketsController#change_status (for 127.0.0.1 at 2009-06-26 20:49:45) [GET]
+  Parameters: {"change_to"=>"closed", "action"=>"change_status", "id"=>"3", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (2.7ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (1,2,3)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (1,2,3) AND id = '3') LIMIT 1[0m
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mTicket Update (0.4ms)[0m   [0;1mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:49:45', "active" = 'f' WHERE "id" = 3[0m
+Rendered tickets/_widget (2.1ms)
+Completed in 173ms (View: 3, DB: 5) | 200 OK [http://localhost/tickets/change_status?id=3&change_to=closed]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-06-26 20:49:50) [GET]
+  Parameters: {"ticket_type"=>:closed, "project_id"=>"1", "action"=>"index", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE ("projects"."id" = 1 AND (("project_users".user_id = 1))) [0m
+Rendering template within layouts/main
+Rendering tickets/index
+Rendered tickets/_form (11.4ms)
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE ("tickets".project_id = 1) AND (("tickets"."active" = 'f') AND ("tickets".project_id = 1)) [0m
+Rendered tickets/_widget (4.1ms)
+Completed in 122ms (View: 43, DB: 1) | 200 OK [http://localhost/projects/1/closed]
+
+
+Processing TicketsController#change_status (for 127.0.0.1 at 2009-06-26 20:49:54) [GET]
+  Parameters: {"change_to"=>"active", "action"=>"change_status", "id"=>"3", "controller"=>"tickets"}
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (1.7ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (1,2,3)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (1,2,3) AND id = '3') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mTicket Update (0.4ms)[0m   [0mUPDATE "tickets" SET "updated_at" = '2009-06-26 19:49:54', "active" = 't' WHERE "id" = 3[0m
+Rendered tickets/_widget (1.9ms)
+Completed in 218ms (View: 3, DB: 5) | 200 OK [http://localhost/tickets/change_status?id=3&change_to=active]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-06-26 20:49:55) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE ("projects"."id" = 1 AND (("project_users".user_id = 1))) [0m
+Rendering template within layouts/main
+Rendering tickets/index
+Rendered tickets/_form (11.7ms)
+  [4;36;1mTicket Load (1.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE ("tickets".project_id = 1) [0m
+Rendered tickets/_widget (3.1ms)
+Rendered tickets/_widget (3.6ms)
+Rendered tickets/_widget (3.8ms)
+Completed in 125ms (View: 48, DB: 2) | 200 OK [http://localhost/projects/1/tickets]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2009-06-26 20:49:56) [GET]
+  Parameters: {"ticket_type"=>:active, "project_id"=>"1", "action"=>"index", "controller"=>"tickets"}
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE ("projects"."id" = 1 AND (("project_users".user_id = 1))) [0m
+Rendering template within layouts/main
+Rendering tickets/index
+Rendered tickets/_form (19.3ms)
+  [4;35;1mTicket Load (0.7ms)[0m   [0mSELECT * FROM "tickets" WHERE ("tickets".project_id = 1) AND (("tickets"."on_hold" = 'f' AND "tickets"."invalid" = 'f' AND "tickets"."active" = 't') AND ("tickets".project_id = 1)) [0m
+Rendered tickets/_widget (12.5ms)
+Rendered tickets/_widget (7.7ms)
+Rendered tickets/_widget (3.2ms)
+Completed in 306ms (View: 92, DB: 3) | 200 OK [http://localhost/projects/1/active]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:49:59) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"tickets"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;36;1mTicket Load (0.7ms)[0m   [0;1mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (1,2,3)) [0m
+  [4;35;1mTicket Load (0.5ms)[0m   [0mSELECT * FROM "tickets" WHERE (project_id IN (1,2,3) AND id = '3') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.5ms)
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendered tickets/_form (5.9ms)
+Completed in 72ms (View: 15, DB: 3) | 200 OK [http://localhost/tickets/3]
+  [4;36;1mTicket Load (0.6ms)[0m   [0;1mSELECT * FROM "tickets" LIMIT 1[0m
+  [4;35;1mComment Load (0.2ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".ticket_id = 1) [0m
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2009-06-26 20:52:55) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"tickets"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_users" ON "projects".id = "project_users".project_id WHERE (("project_users".user_id = 1)) [0m
+  [4;35;1mTicket Load (0.7ms)[0m   [0mSELECT "tickets".* FROM "tickets" WHERE ("tickets".project_id IN (1,2,3)) [0m
+  [4;36;1mTicket Load (0.5ms)[0m   [0;1mSELECT * FROM "tickets" WHERE (project_id IN (1,2,3) AND id = '3') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering tickets/show
+Rendered tickets/_widget (1.5ms)
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendered tickets/_form (2.4ms)
+Completed in 72ms (View: 19, DB: 3) | 200 OK [http://localhost/tickets/3]

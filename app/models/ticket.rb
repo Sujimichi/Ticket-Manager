@@ -6,6 +6,8 @@ class Ticket < ActiveRecord::Base
 
 
   belongs_to :project
+  has_many :comments, :dependent => :destroy
+
   validates_presence_of :project
 
   validate_on_create :title_or_text

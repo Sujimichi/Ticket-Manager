@@ -143,7 +143,7 @@ h6
 #tickets_index
   .centered
     :width 70%
-  .ticket_widget
+  .widget
     :margin-bottom 1em
     :background-color #abb4ed
     :padding 0em
@@ -162,6 +162,20 @@ h6
       .links
         :float right
       +clearfix
-  .hanging_widget
-    :margin-left 1em
-    :padding-right 0em
+
+
+#projects_index
+  .centered
+    :width 50%
+
+  .widget
+    .heading
+      +heading
+      .project_name
+        :float left
+        :font-size 130%
+      .links
+        :float right
+
+      +clearfix
+      .details

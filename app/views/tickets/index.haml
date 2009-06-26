@@ -19,7 +19,7 @@
 
     .centered
       - @tickets.sort_by{|t| t.created_at}.each do |ticket|
-        .ticket_widget{:id => "ticket_id_#{ticket.id}"}
+        .widget{:id => "ticket_id_#{ticket.id}"}
           .heading
             .number
               = "\##{ticket.id}"

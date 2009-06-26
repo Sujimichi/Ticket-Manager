@@ -17,8 +17,8 @@
   overflow: auto;
   overflow: -moz-scrollbars-none;
   display: inline-block;
-  border: 0.1em solid black;
-  background-color: #dddddd;
+  border: 0.3em solid #4f2fcc;
+  background-color: #abb4ed;
   margin-bottom: 10px;
   -moz-border-radius: 8px; -webkit-border-radius: 8px; };
   overflow: auto;
@@ -58,24 +58,6 @@
   .edged_widget {
     display: block; }
 
-.ticket_widget {
-  padding: 0.5em;
-  width: 96%;
-  float: left;
-  overflow: auto;
-  overflow: -moz-scrollbars-none;
-  display: inline-block;
-  border: 0.3em solid #4f2fcc;
-  padding: 1em;
-  -moz-border-radius: 8px; -webkit-border-radius: 8px; };
-  overflow: auto;
-  overflow: -moz-scrollbars-none;
-  display: inline-block; }
-  .ticket_widget {
-    display: block; }
-  .ticket_widget {
-    display: block; }
-
 .hanging_widget {
   padding: 0.5em;
   width: 96%;
@@ -83,6 +65,8 @@
   overflow: auto;
   overflow: -moz-scrollbars-none;
   display: inline-block;
+  margin-left: 1em;
+  padding-right: 0em;
   border-bottom: 0.2em solid #4f2fcc;
   border-left: 0.2em solid #4f2fcc;
   border-right: 0.2em solid #4f2fcc;
@@ -97,8 +81,12 @@
   background-color: #BCED91;
   padding: 10px;
   text-align: center;
-  margin-left: 10em;
-  margin-right: 10em;
+  width: 40%;
+  margin-top: 0.1em;
+  margin-left: 4em;
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  display: inline-block;
   color: #cc1111;
   border: 1px solid #ff8585;
   background-color: #ffebeb;
@@ -117,8 +105,12 @@
   background-color: #BCED91;
   padding: 10px;
   text-align: center;
-  margin-left: 10em;
-  margin-right: 10em;
+  width: 40%;
+  margin-top: 0.1em;
+  margin-left: 4em;
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  display: inline-block;
   -moz-border-radius: 8px; -webkit-border-radius: 8px; };
   overflow: auto;
   overflow: -moz-scrollbars-none;

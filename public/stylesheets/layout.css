@@ -119,29 +119,42 @@ h6 {
 
 #tickets_index .centered {
   width: 70%; }
-#tickets_index .ticket_widget {
+#tickets_index .widget {
   margin-bottom: 1em;
   background-color: #abb4ed;
   padding: 0em; }
-  #tickets_index .ticket_widget .details {
+  #tickets_index .widget .details {
     padding: 0.5em 1em 1em 1em; }
-  #tickets_index .ticket_widget .heading {
+  #tickets_index .widget .heading {
     padding: 0.5em 0.5em 0.2em 0.5em;
     border-bottom: 1px solid black;
     overflow: auto;
     overflow: -moz-scrollbars-none;
     display: inline-block; }
-    #tickets_index .ticket_widget .heading .number {
+    #tickets_index .widget .heading .number {
       display: inline;
       color: #4f2fcc;
       float: left; }
-    #tickets_index .ticket_widget .heading .ticket_title {
+    #tickets_index .widget .heading .ticket_title {
       float: left;
       margin-left: 1em; }
-    #tickets_index .ticket_widget .heading .links {
+    #tickets_index .widget .heading .links {
       float: right; }
-    #tickets_index .ticket_widget .heading {
+    #tickets_index .widget .heading {
       display: block; }
-#tickets_index .hanging_widget {
-  margin-left: 1em;
-  padding-right: 0em; }
+
+#projects_index .centered {
+  width: 50%; }
+#projects_index .widget .heading {
+  color: #706a6a;
+  font-weight: bold;
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  display: inline-block; }
+  #projects_index .widget .heading .project_name {
+    float: left;
+    font-size: 130%; }
+  #projects_index .widget .heading .links {
+    float: right; }
+  #projects_index .widget .heading {
+    display: block; }

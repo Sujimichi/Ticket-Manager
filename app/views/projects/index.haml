@@ -1,9 +1,11 @@
 #projects_index
   .left
     .hanging_widget
-      = link_to_function 'New project', "$('#create_project').toggle('slow')"
-      #create_project{:style => 'display:none;'}
-        = render :partial => 'form', :locals => {:project => Project.new }
+      .left
+        = link_to_function 'New project', "$('#create_project').toggle('slow')"
+      .left
+        #create_project{:style => 'display:none;'}
+          = render :partial => 'form', :locals => {:project => Project.new }
   .left.with_margin
     #sub_heading.title Listing projects
 

@@ -67,6 +67,11 @@ h6 {
     float: left;
     font-size: 80%;
     font-weight: bold; }
+  #header .flash_holder {
+    margin-top: 0.5em;
+    margin-left: 1em;
+    float: left;
+    width: 50%; }
   #header .links {
     float: right;
     padding-top: 15px;
@@ -116,6 +121,18 @@ h6 {
   background-color: transparent; }
   #welcome_page .widget .login_bttn {
     float: right; }
+#welcome_page a {
+  color: blue; }
+  #welcome_page a:hover {
+    color: red; }
+#welcome_page li a {
+  color: #706a6a;
+  font-weight: bold;
+  font-size: 120%;
+  font-weight: bold; }
+  #welcome_page li a:hover {
+    font-size: 130%;
+    color: #706a6a; }
 
 #tickets_index .centered {
   width: 70%; }
@@ -158,3 +175,7 @@ h6 {
     float: right; }
   #projects_index .widget .heading {
     display: block; }
+
+#project_new .centered {
+  width: 60%;
+  margin-top: 4em; }

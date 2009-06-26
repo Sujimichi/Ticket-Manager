@@ -37,7 +37,9 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    name = @project.name
     @project.destroy
+    flash[:notice] = "#{name} and its tickets has been deleted"
     redirect_to(projects_url)
   end
 

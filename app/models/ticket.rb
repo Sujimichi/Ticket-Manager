@@ -8,6 +8,14 @@ class Ticket < ActiveRecord::Base
   belongs_to :project
   validates_presence_of :project
 
+  validate_on_create :title_or_text
+
+  def title_or_text
+    return true unless self.details.nil? || self.details.empty?
+    return true unless self.title.nil? || self.title.empty?
+    self.errors.add("Ticket must have either title or details")
+  end
+
 
   def mark_closed
     self.update_attributes(:active => false)

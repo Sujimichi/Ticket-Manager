@@ -8,10 +8,9 @@
           - current_user.active_projects.each do |project|
             %li
               %a{:href => "projects/#{project.id}/tickets"}
-                .project_list_item{:onmouseover => "hover_on($(this))", :onmouseout => "hover_off($(this))"}
-                  .info_text
-                    = project.name
-                    .inline.small= "#{project.tickets.count} Tickets"
+                .project_list_item
+                  = project.name
+                  .inline.small= "#{project.tickets.count} Tickets"
         .right= link_to_function "add ticket", "$('#quick_ticket').toggle('slow')"
         .clear
         #quick_ticket.hidden

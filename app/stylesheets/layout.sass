@@ -84,6 +84,13 @@ h6
       :size 80%
       :weight bold
 
+  .flash_holder
+    :margin
+      :top 0.5em
+      :left 1em
+    :float left
+    :width 50%
+
   .links
     :float right
     :padding
@@ -116,9 +123,7 @@ h6
 
 
 =info_text
-  :color #706a6a
-  :font
-    :weight bold
+  +heading
 
 .info_text
   +info_text
@@ -138,6 +143,21 @@ h6
     :background-color transparent
     .login_bttn
       :float right
+  a
+    :color blue
+    &:hover
+      :color red
+
+
+  li
+    a
+      +heading
+      :font
+        :size 120%
+        :weight bold
+      &:hover
+        :font-size 130%
+        :color #706a6a
 
 
 #tickets_index
@@ -179,3 +199,8 @@ h6
 
       +clearfix
       .details
+
+#project_new
+  .centered
+    :width 60%
+    :margin-top 4em

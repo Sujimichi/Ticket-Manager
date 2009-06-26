@@ -34,6 +34,7 @@ class TicketsController < ApplicationController
       flash[:notice] = 'Ticket was successfully created.'
       redirect_to :back
     else
+      flash[:error] = 'Ticket cannot be created!'
       render :action => "new"
     end
   end

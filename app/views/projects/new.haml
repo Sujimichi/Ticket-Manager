@@ -1,6 +1,5 @@
-%h1 New project
-
-= render :partial => 'form', :locals => {:project => @project }
-  
-= link_to 'Back', projects_path
-
+#project_new
+  .centered
+    .widget
+      = render :partial => 'form', :locals => {:project => @project }
+      = link_to 'Back', projects_path

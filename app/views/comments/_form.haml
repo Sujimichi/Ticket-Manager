@@ -1,0 +1,12 @@
+.comment_form
+  -form_for comment do |f|
+    = f.error_messages
+    
+    .attribute
+      .name= f.label :ticket_id
+      .value= f.text_field :ticket_id 
+    .attribute
+      .name= f.label :text
+      .value= f.text_area :text 
+    
+    .comment_submit_button= f.submit "Save"

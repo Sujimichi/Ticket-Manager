@@ -1,9 +1,54 @@
-#sub_heading.title=h @project.name
-
-.outer_widget
-  .widget
+#project_show
+  .hanging_widget
     = link_to 'Back', projects_path
     |
-    = link_to_function "Edit", "$('#update_project').toggle('slow')"
-    #update_project{:style => 'display:none;'}
-      = render :partial => 'form', :locals => {:project => @project }
+    = link_to_function "Edit", "edit()", :id => "edit_link"
+
+
+  .outer_widget
+    .centered
+      #show_project
+        .widget
+          .heading
+            .project_name=h @project.name
+
+          .project_info= @project.info
+
+          .ticket_info
+            .label Tickets:
+            .info
+              - types = [:active, :closed, :on_hold, :invalid]
+              - links = {:active => link_to("Active", active_tickets_path(:project_id => @project.id)), :closed => link_to("Closed", closed_tickets_path(:project_id => @project.id)), :on_hold => link_to("On hold", on_hold_tickets_path(:project_id => @project.id)), :invalid => link_to("Invalid", invalid_tickets_path(:project_id => @project.id))}
+              - types.each do |key|
+                = "|" unless key.eql?(types.first)
+                = links[key]
+          .user_info
+            .label Users:
+            .info
+              - @project.users.each do |user|
+                = user.username
+
+        .clear
+
+      #update_project{:style => 'display:none;', :class => 'widget'}
+        = render :partial => 'form', :locals => {:project => @project, :with_info => true}
+
+
+
+
+
+
+:javascript
+
+  function edit(){
+    var opt = $('#edit_link').html();
+    if (opt == 'Edit'){
+      $('#show_project').hide('slow')
+      $('#update_project').show('slow')
+      $('#edit_link').html('Cancel');
+    }else{
+      $('#update_project').hide('slow')
+      $('#show_project').show('slow')
+      $('#edit_link').html('Edit');
+    };
+  };

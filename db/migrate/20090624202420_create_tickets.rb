@@ -8,6 +8,8 @@ class CreateTickets < ActiveRecord::Migration
       t.boolean :active, :default => true
       t.boolean :on_hold, :default => false
       t.boolean :invalid, :default => false
+
+      t.boolean :high_priority, :default => nil
       
       t.timestamps
 

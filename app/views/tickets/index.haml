@@ -13,29 +13,14 @@
         = render :partial => 'form', :locals => {:ticket => Ticket.new, :project => @project }
 
   .left.with_margin
-    #sub_heading.title= "#{@ticket_type.to_s.titlecase} Tickets for #{@project.name}"
+    #sub_heading.title= "#{@ticket_type.nil? ? 'All' : @ticket_type.to_s.titlecase} Tickets for #{@project.name}"
 
   .outer_widget
 
     .centered
       - @tickets.sort_by{|t| t.created_at}.each do |ticket|
-        .widget{:id => "ticket_id_#{ticket.id}"}
-          .heading
-            .number
-              = "\##{ticket.id}"
-              |
-              = ticket.created_at.to_date
-            .ticket_title= ticket.title
-            .links
-              = link_to 'Show', ticket_path(ticket)
-              = link_to 'Destroy', ticket_path(ticket), :method => :delete
-
-              - [('open' if !ticket.active? || ticket.invalid? || ticket.on_hold?), ('close' if ticket.active?), ('hold' unless ticket.on_hold?), ('invalidate' unless ticket.invalid?)].compact.each do |opt|
-                = link_to_function opt, "#{opt}_ticket('#{ticket.id}')"
-
-          .details
-            = ticket.details
-
+        %div{:id => "ticket_id_#{ticket.id}"}
+          = render :partial => 'tickets/widget', :locals => {:ticket => ticket}
 
 :javascript
   function close_ticket(t_id){
@@ -58,11 +43,10 @@
   };
 
 
-
   function call_and_close(url, t_id){
     var data = {id: t_id};
     var callback = function (data, textStatus) {
-      $('#ticket_id_' + t_id).hide("slow");
+      $('#ticket_widget_id_' + t_id).hide("slow");
     };
     jQuery.get( url, data, callback, 'html' );
   };

@@ -1,3 +1,5 @@
+-with_info ||= false
+
 .project_form
   -form_for project do |f|
     = f.error_messages
@@ -5,5 +7,11 @@
     .css_table
       .label= f.label :name
       .value= f.text_field :name
-      .value
-        .project_submit_button= f.submit "Save"
+      - unless with_info
+        .value
+          .project_submit_button= f.submit "Save"
+    -if with_info
+      .with_margin.label Information
+      .with_margin.value= f.text_area :info, :rows => 4, :cols => 60
+      .right
+        .project_submit_button= f.submit "Update"

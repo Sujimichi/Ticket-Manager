@@ -42,4 +42,10 @@ class Ticket < ActiveRecord::Base
     "closed"
   end
 
+  def priority
+    return "Normal" if high_priority.nil?
+    return "High" if high_priority
+    return "Low" unless high_priority
+  end
+
 end

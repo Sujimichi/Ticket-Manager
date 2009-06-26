@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'tickets/open_ticket', :controller => 'tickets', :action => 'open_ticket'
   map.connect 'tickets/hold_ticket', :controller => 'tickets', :action => 'hold_ticket'
   map.connect 'tickets/invalidate_ticket', :controller => 'tickets', :action => 'invalidate_ticket'
+  map.connect 'tickets/change_priority', :controller => 'tickets', :action => 'change_priority'
 
   map.resources :tickets
 

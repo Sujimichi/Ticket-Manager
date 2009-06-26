@@ -66,11 +66,11 @@
   overflow: -moz-scrollbars-none;
   display: inline-block;
   margin-left: 1em;
-  padding-right: 0em;
   border-bottom: 0.2em solid #4f2fcc;
   border-left: 0.2em solid #4f2fcc;
   border-right: 0.2em solid #4f2fcc;
   background-color: #abb4ed;
+  width: auto;
   -moz-border-radius: 0px 0px 8px 8px; -webkit-border-radius-bottom: 8px; }; }
   .hanging_widget {
     display: block; }

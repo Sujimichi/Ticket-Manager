@@ -179,3 +179,32 @@ h6 {
 #project_new .centered {
   width: 60%;
   margin-top: 4em; }
+
+#project_show .centered {
+  width: 60%; }
+#project_show .widget .heading {
+  color: #706a6a;
+  font-weight: bold;
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  display: inline-block; }
+  #project_show .widget .heading .project_name {
+    float: left;
+    font-size: 150%; }
+  #project_show .widget .heading {
+    display: block; }
+#project_show .widget .project_info {
+  color: #706a6a;
+  padding: 1em; }
+#project_show .widget .ticket_info .label {
+  display: inline;
+  color: #706a6a;
+  font-weight: bold; }
+#project_show .widget .ticket_info .info {
+  display: inline; }
+#project_show .widget .user_info .label {
+  display: inline;
+  color: #706a6a;
+  font-weight: bold; }
+#project_show .widget .user_info .info {
+  display: inline; }

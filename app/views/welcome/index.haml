@@ -7,7 +7,7 @@
         %ul
           - current_user.active_projects.each do |project|
             %li
-              %a{:href => "projects/#{project.id}/tickets"}
+              %a{:href => "projects/#{project.id}/active"}
                 .project_list_item
                   = project.name
                   .inline.small= "#{project.tickets.count} Tickets"

@@ -36,7 +36,7 @@ class Ticket < ActiveRecord::Base
 
 
   def status
-    return "on_hold" if self.on_hold?
+    return "on hold" if self.on_hold?
     return "invalid" if self.invalid?
     return "active" if self.active?
     "closed"

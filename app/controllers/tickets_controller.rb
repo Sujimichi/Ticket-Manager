@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_filter :assign_ticket, :only => [:show, :edit, :update, :destroy, :close_ticket, :open_ticket, :hold_ticket, :invalidate_ticket, :change_priority]
+  before_filter :assign_ticket, :only => [:show, :edit, :update, :destroy, :change_priority, :change_status]
 
   def index
     if params[:project_id]
@@ -53,48 +53,22 @@ class TicketsController < ApplicationController
     redirect_to(project_tickets_path(project))
   end
 
-  def close_ticket  
-    @ticket.mark_closed
-    return render :text  => "done" if request.xhr?
-    redirect_to :back
-  end
-
-  def open_ticket
-    @ticket.mark_open
-    return render :text => "done" if request.xhr?
-    redirect_to :back
-  end
-
-  def hold_ticket
-    @ticket.mark_on_hold
-    return render :text => "done" if request.xhr?
-    redirect_to :back
-  end
-  
-  def invalidate_ticket
-    @ticket.mark_invalid
-    return render :text => "done" if request.xhr?
+  def change_status
+    @ticket.mark_closed if params[:change_to].eql?('closed')
+    @ticket.mark_active if params[:change_to].eql?('active')
+    @ticket.mark_on_hold if params[:change_to].gsub(" ", "_").eql?('on_hold')
+    @ticket.mark_invalid if params[:change_to].eql?('invalid')    
+    return render :partial => 'tickets/widget', :locals => {:ticket => @ticket} if request.xhr?
     redirect_to :back
   end
 
   def change_priority
-    set_high_priority if params[:priority].downcase.eql?("high")
-    set_normal_priority if params[:priority].downcase.eql?("normal")
-    set_low_priority if params[:priority].downcase.eql?("low")
+    @ticket.update_attributes(:high_priority => true) if params[:priority].downcase.eql?("high")
+    @ticket.update_attributes(:high_priority => nil)  if params[:priority].downcase.eql?("normal")
+    @ticket.update_attributes(:high_priority => false)if params[:priority].downcase.eql?("low")
+    return render :partial => 'tickets/widget', :locals => {:ticket => @ticket} if request.xhr?
+    redirect_to :back
   end
-  def set_high_priority
-    @ticket.update_attributes(:high_priority => true)
-    render :partial => 'tickets/widget', :locals => {:ticket => @ticket}
-  end
-  def set_normal_priority
-    @ticket.update_attributes(:high_priority => nil)  
-    render :partial => 'tickets/widget', :locals => {:ticket => @ticket}
-  end
-  def set_low_priority
-    @ticket.update_attributes(:high_priority => false)  
-    render :partial => 'tickets/widget', :locals => {:ticket => @ticket}    
-  end
-
 
   protected
   

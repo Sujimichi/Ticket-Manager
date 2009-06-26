@@ -17,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'tickets/hold_ticket', :controller => 'tickets', :action => 'hold_ticket'
   map.connect 'tickets/invalidate_ticket', :controller => 'tickets', :action => 'invalidate_ticket'
   map.connect 'tickets/change_priority', :controller => 'tickets', :action => 'change_priority'
-
+  map.connect 'tickets/change_status', :controller => 'tickets', :action => 'change_status'
   map.resources :tickets
 
   # The priority is based upon order of creation: first created -> highest priority.

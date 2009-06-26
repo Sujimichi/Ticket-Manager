@@ -24,6 +24,20 @@
     jQuery.get( url, data, callback, 'html' );
   };
 
+  function change_status(t_id){
+    var val = $('#change_status_' + t_id).val()
+    url = '/tickets/change_status'
+    data = {id: t_id, change_to: val}
+    var callback = function (data, textStatus) {
+      var type =  $('#ticket_type').val();
+      if (type != "All"){
+        $('#ticket_widget_id_' + t_id).hide("slow");
+      }else{
+        $('#ticket_id_' + t_id).html(data)
+      };
+    };
+    jQuery.get( url, data, callback, 'html' );
+  };
 
 .widget{:id => "ticket_widget_id_#{ticket.id}"}
   .heading
@@ -38,14 +52,16 @@
       = ticket.priority
 
     .links
+      - opts = ['active', 'closed', 'on hold', 'invalid' ]
       = select_tag "change_priority_#{ticket.id}", options_for_select(["High", "Normal", "Low"], ticket.priority), :onchange => "change_priority('#{ticket.id}')"
-
+      = select_tag "change_status+#{ticket.id}", options_for_select(opts, ticket.status), :onchange => "change_status('#{ticket.id}')"
+      |
       = link_to 'Show', ticket_path(ticket)
-      - [('open' if !ticket.active? || ticket.invalid? || ticket.on_hold?), ('close' if ticket.active?), ('hold' unless ticket.on_hold?), ('invalidate' unless ticket.invalid?)].compact.each do |opt|
-        = link_to_function opt, "#{opt}_ticket('#{ticket.id}')"
+
 
   .details
     = ticket.details
+
 - if ticket.high_priority?
   = javascript_tag "high_priority('#{ticket.id}')"
 - elsif ticket.high_priority.nil?

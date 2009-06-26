@@ -4,12 +4,17 @@ class User < ActiveRecord::Base
   has_many :project_users
   has_many :projects, :through => :project_users, :include => :tickets
 
-  def tickets
-    Ticket.find(:all, :conditions => ["project_id IN (?)", self.projects.map{|p| p.id}])
+  #all tickets from all user's projects
+  def tickets 
+    Ticket.in_projects(self.projects.map{|p| p.id})
   end
 
+  #all comments from all user's tickets from all user's projects
+  def comments
+    Comment.in_tickets(self.tickets.map{|t| t.id})
+  end
 
   def active_projects
-    self.projects.find(:all, :conditions => {:active => true})
+    self.projects.active
   end
 end

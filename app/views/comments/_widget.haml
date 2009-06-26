@@ -1,0 +1,24 @@
+%div{:id => "comment_id_#{comment.id}", :class => 'widget'}
+  .left
+    = comment.text
+  .right
+    = link_to_function "x", "delete_comment('#{comment.id}')"
+
+
+:javascript
+
+  function delete_comment(c_id){
+    url = '/comments/remote_destroy'
+    data = {id: c_id}
+    var callback = function (data, textStatus) {
+      $('#comment_id_' + c_id).animate({
+        width: "0%",
+        marginLeft: "50%",
+        fontSize: "0px",
+        opacity: 0
+      }, 800 )
+      setTimeout(function(){$('#comment_id_' + c_id).hide()}, 800)
+
+    };
+    jQuery.get( url, data, callback, 'html' );
+  };

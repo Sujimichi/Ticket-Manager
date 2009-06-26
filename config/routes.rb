@@ -1,13 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :comments
-
-  map.resources :users
-  map.resources :user_sessions
-
-
-
-
-  map.resources :projects, :has_many => [:tickets]
 
   map.active_tickets 'projects/:project_id/active', :controller => 'tickets', :action => 'index', :ticket_type => :active
   map.closed_tickets 'projects/:project_id/closed', :controller => 'tickets', :action => 'index', :ticket_type => :closed
@@ -20,7 +11,18 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'tickets/invalidate_ticket', :controller => 'tickets', :action => 'invalidate_ticket'
   map.connect 'tickets/change_priority', :controller => 'tickets', :action => 'change_priority'
   map.connect 'tickets/change_status', :controller => 'tickets', :action => 'change_status'
+
+  map.connect 'comments/remote_destroy', :controller => 'comments', :action => 'destroy'
+  
+  
+  map.resources :projects, :has_many => [:tickets]
   map.resources :tickets
+  map.resources :comments
+  map.resources :users
+  map.resources :user_sessions
+
+  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
 

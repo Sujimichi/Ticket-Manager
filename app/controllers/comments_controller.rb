@@ -1,24 +1,8 @@
 class CommentsController < ApplicationController
-  before_filter :assign_comment, :only => [:show, :edit, :update, :destroy]
+  before_filter :assign_comment, :only => [:update, :destroy]
 
-  def index
-    @comments = current_user.comments.find(:all)
-  end
-
-  def show
-  end
-
-  def new
-    @comment = Comment.new
-  end
-
-
-  def edit
-  end
-
-  def create
+   def create
     @comment = current_user.comments.new(params[:comment])
-
     if @comment.save
       flash[:notice] = 'Comment was successfully created.'
       redirect_to :back
@@ -38,12 +22,11 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
+    return render :text => "done" if request.xhr?
     redirect_to(comments_url)
   end
 
-
   protected
-  
   def assign_comment
     begin
       @comment = current_user.comments.find(params[:id])

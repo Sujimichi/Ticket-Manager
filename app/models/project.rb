@@ -1,8 +1,8 @@
 class Project < ActiveRecord::Base
+  named_scope :active, :conditions => {:active => true}
   has_many :project_users
   has_many :projects, :through => :project_users
   has_many :users, :through => :project_users
-
   has_many :tickets, :dependent => :destroy
 
   validates_presence_of :name

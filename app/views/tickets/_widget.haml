@@ -47,9 +47,6 @@
       = ticket.created_at.to_date
     .ticket_title
       = ticket.title
-      = "-"
-      = ticket.status
-      = ticket.priority
 
     .links
       - opts = ['active', 'closed', 'on hold', 'invalid' ]

@@ -4,25 +4,20 @@ class Project < ActiveRecord::Base
 
   has_many :tickets
 
-  def next_num
-    [0,self.tickets.map{|t| t.number}].flatten.compact.max + 1
-  end
-
-
   def active_tickets
-    self.tickets.find(:all, :conditions => {:active => true, :on_hold => false, :invalid => false})
+    self.tickets.active
   end
 
   def closed_tickets
-    self.tickets.find(:all, :conditions => {:active => false})
+    self.tickets.closed
   end
 
   def on_hold_tickets
-    self.tickets.find(:all, :conditions => {:active => true, :on_hold => true})
+    self.tickets.on_hold
   end
 
   def invalid_tickets
-    self.tickets.find(:all, :conditions => {:active => true, :invalid => true})
+    self.tickets.invalid
   end
 
 end

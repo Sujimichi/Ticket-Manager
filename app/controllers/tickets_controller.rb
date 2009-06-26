@@ -1,10 +1,17 @@
 class TicketsController < ApplicationController
-  before_filter :assign_ticket, :only => [:show, :edit, :update, :destroy]
+  before_filter :assign_ticket, :only => [:show, :edit, :update, :destroy, :close_ticket, :open_ticket, :hold_ticket, :invalidate_ticket]
 
   def index
     if params[:project_id]
       @project = current_user.projects.find(params[:project_id])
-      @tickets = @project.tickets
+      @ticket_type = params[:ticket_type].to_sym if params[:ticket_type] 
+      @ticket_type ||= :active
+
+      @tickets = @project.active_tickets if @ticket_type.eql?(:active)
+      @tickets = @project.closed_tickets if @ticket_type.eql?(:closed)
+      @tickets = @project.on_hold_tickets if @ticket_type.eql?(:on_hold)
+      @tickets = @project.invalid_tickets if @ticket_type.eql?(:invalid)
+     
     else
       @tickets = current_user.tickets
     end
@@ -46,6 +53,29 @@ class TicketsController < ApplicationController
     redirect_to(project_tickets_path(project))
   end
 
+  def close_ticket  
+    @ticket.mark_closed
+    return render :text  => "done" if request.xhr?
+    redirect_to(project_tickets_path(@ticket.project))
+  end
+
+  def open_ticket
+    @ticket.mark_open
+    return render :text => "done" if request.xhr?
+    redirect_to(project_tickets_path(@ticket.project))
+  end
+
+  def hold_ticket
+    @ticket.mark_on_hold
+    return render :text => "done" if request.xhr?
+    redirect_to(project_tickets_path(@ticket.project))
+  end
+  
+  def invalidate_ticket
+    @ticket.mark_invalid
+    return render :text => "done" if request.xhr?
+    redirect_to(project_tickets_path(@ticket.project))
+  end
 
   protected
   

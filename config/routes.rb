@@ -1,11 +1,23 @@
 ActionController::Routing::Routes.draw do |map|
-  
   map.resources :users
   map.resources :user_sessions
 
-  map.resources :projects, :has_many => [:tickets]
-  map.resources :tickets
 
+
+
+  map.resources :projects, :has_many => [:tickets]
+
+  map.active_tickets 'projects/:project_id/active', :controller => 'tickets', :action => 'index', :ticket_type => :active
+  map.closed_tickets 'projects/:project_id/closed', :controller => 'tickets', :action => 'index', :ticket_type => :closed
+  map.on_hold_tickets 'projects/:project_id/on_hold', :controller => 'tickets', :action => 'index', :ticket_type => :on_hold
+  map.invalid_tickets 'projects/:project_id/invalid', :controller => 'tickets', :action => 'index', :ticket_type => :invalid
+
+  map.connect 'tickets/close_ticket', :controller => 'tickets', :action => 'close_ticket'
+  map.connect 'tickets/open_ticket', :controller => 'tickets', :action => 'open_ticket'
+  map.connect 'tickets/hold_ticket', :controller => 'tickets', :action => 'hold_ticket'
+  map.connect 'tickets/invalidate_ticket', :controller => 'tickets', :action => 'invalidate_ticket'
+
+  map.resources :tickets
 
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -21,8 +21,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :user_sessions
   map.connect 'project_users/user_request', :controller => 'project_users', :action => 'user_request'
-
-  
+  map.connect 'project_users/:id/accept', :controller => 'project_users', :action => 'accept'
+  map.connect 'project_users/:id/reject', :controller => 'project_users', :action => 'reject'  
 
 
   # The priority is based upon order of creation: first created -> highest priority.

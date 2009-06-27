@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def requested_projects
-    self.project_users.find(:all, :conditions => {:project_id => nil})
+    ids = self.project_users.map{|pu| pu.requested_project_id}.compact
+    Project.find(ids)
   end
 end

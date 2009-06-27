@@ -230,18 +230,10 @@ h6 {
 #project_show .widget .project_info {
   color: #706a6a;
   padding: 1em; }
-#project_show .widget .ticket_info .label {
-  display: inline;
+#project_show .widget .css_table .label {
+  padding: 0;
   color: #706a6a;
   font-weight: bold; }
-#project_show .widget .ticket_info .info {
-  display: inline; }
-#project_show .widget .user_info .label {
-  display: inline;
-  color: #706a6a;
-  font-weight: bold; }
-#project_show .widget .user_info .info {
-  display: inline; }
 
 #users_index .centered {
   width: 70%;

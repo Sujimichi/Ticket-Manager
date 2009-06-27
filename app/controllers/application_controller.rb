@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
   before_filter :require_login
   helper_method :current_user, :redirect_back_or_default, :admin?, :logged_in?
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+
+  private
 
   def current_user_session
     return @current_user_session if defined?(@current_user_session)

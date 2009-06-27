@@ -2,7 +2,8 @@
 
 .project_form
   -form_for project do |f|
-    = f.error_messages
+    - unless f.error_messages.empty?
+      .form_errors= f.error_messages
 
     .css_table
       .label= f.label :name

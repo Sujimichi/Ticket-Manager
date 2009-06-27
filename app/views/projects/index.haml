@@ -2,26 +2,25 @@
   .left
     .hanging_widget
       .left
-        = link_to_function 'New project', "$('#create_project').toggle('slow')"
+        = link_to_function 'New Project', "toggeler('add_project_link', 'foo', 'create_project', 'New Project', 'Cancel')", :id => 'add_project_link'
+        |
+        = link_to_function 'Join Project', "toggeler('join_project_link', 'foo', 'join_project', 'Join Project', 'Cancel')", :id => 'join_project_link'
       .left
         #create_project{:style => 'display:none;'}
           = render :partial => 'form', :locals => {:project => Project.new }
+        #join_project.hidden{:style => 'width:20em;'}
+          Select Project
+          - form_for ProjectUser.new, :url => {:controller => 'project_users', :action => 'user_request', :user_id => current_user.id} do |f|
+            = select_tag :project_id, options_for_select(Project.all.map{|p| [p.name, p.id]})
+            = f.submit("Request")
+            .clear
+
+
   .left.with_margin
-    #sub_heading.title Listing projects
+    #sub_heading.title Manage Projects
 
   .clear
   .outer_widget
     .centered
       - @projects.each do |project|
-        .widget
-          .heading
-            .project_name= project.name
-            .links
-              = link_to "Tickets (#{project.tickets.count})", project_tickets_path(project)
-
-          .left
-            .details
-              .date= "Created on: #{project.created_at.to_date}"
-          .right
-            = link_to 'Show', project_path(project)
-            = link_to 'Destroy', project_path(project), :method => :delete
+        = render :partial => 'projects/widget', :locals => {:project => project}

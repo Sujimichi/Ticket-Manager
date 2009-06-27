@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_sys_admin, :only => [:index]
+  skip_before_filter :require_login, :only => [:new, :create]
 
 
   def index 

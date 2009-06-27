@@ -188,23 +188,30 @@ h6 {
         display: block; }
 
 #projects_index .centered {
-  width: 50%; }
-#projects_index .widget .heading {
-  color: #706a6a;
-  font-weight: bold;
-  overflow: auto;
-  overflow: -moz-scrollbars-none;
-  display: inline-block; }
-  #projects_index .widget .heading .project_name {
-    float: left;
-    font-size: 130%; }
-  #projects_index .widget .heading .links {
-    float: right; }
+  width: 65%; }
+#projects_index .widget {
+  padding: 0.8em 1em 1em 1em; }
   #projects_index .widget .heading {
-    display: block; }
+    color: #706a6a;
+    font-weight: bold;
+    overflow: auto;
+    overflow: -moz-scrollbars-none;
+    display: inline-block; }
+    #projects_index .widget .heading .project_name {
+      float: left;
+      font-size: 130%; }
+    #projects_index .widget .heading .date {
+      float: right; }
+    #projects_index .widget .heading {
+      display: block; }
+  #projects_index .widget .body {
+    margin-top: 1em; }
+    #projects_index .widget .body .details {
+      float: left; }
+    #projects_index .widget .body .links {
+      float: right; }
 
 #project_new .centered {
-  width: 60%;
   margin-top: 4em; }
 
 #project_show .centered {

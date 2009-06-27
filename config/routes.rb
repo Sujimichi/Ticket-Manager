@@ -20,6 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :comments
   map.resources :users
   map.resources :user_sessions
+  map.connect 'project_users/user_request', :controller => 'project_users', :action => 'user_request'
 
   
 

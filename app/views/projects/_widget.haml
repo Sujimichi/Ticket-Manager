@@ -1,0 +1,16 @@
+.widget
+  .heading
+    .project_name= project.name
+    .date= "Created on: #{project.created_at.to_date}"
+
+  .body
+    .details
+      = link_to "Active (#{project.tickets.active.count})", active_tickets_path(project)
+      |
+      = link_to "Closed (#{project.tickets.closed.count})", closed_tickets_path(project)
+      |
+      = link_to "On Hold (#{project.tickets.on_hold.count})", on_hold_tickets_path(project)
+      |
+      = link_to "Invalid (#{project.tickets.invalid.count})", invalid_tickets_path(project)
+    .links
+      = link_to 'Full Details', project_path(project)

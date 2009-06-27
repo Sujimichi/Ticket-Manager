@@ -73,3 +73,14 @@ class ApplicationController < ActionController::Base
   end
 
 end
+
+
+class Array
+  def and_join
+    self.compact.join(", ").reverse.sub(",","dna ").reverse
+  end
+  def average
+    return nil if self.empty?
+    self.sum/self.size
+  end
+end

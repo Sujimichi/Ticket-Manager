@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :project_users
   has_many :projects, :through => :project_users, :include => :tickets
+
   has_many :tickets
 
   #all tickets from all user's projects
@@ -17,5 +18,13 @@ class User < ActiveRecord::Base
 
   def active_projects
     self.projects.active
+  end
+
+  def request_project project
+    ProjectUser.create(:user_id => self.id, :requested_project_id => project.id)
+  end
+
+  def requested_projects
+    self.project_users.find(:all, :conditions => {:project_id => nil})
   end
 end

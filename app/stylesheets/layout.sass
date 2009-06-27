@@ -210,23 +210,27 @@ h6
 
 #projects_index
   .centered
-    :width 50%
+    :width 65%
 
   .widget
+    :padding 0.8em 1em 1em 1em
     .heading
       +heading
       .project_name
         :float left
         :font-size 130%
+      .date
+        :float right
+      +clearfix
+    .body
+      :margin-top 1em
+      .details
+        :float left
       .links
         :float right
 
-      +clearfix
-      .details
-
 #project_new
   .centered
-    :width 60%
     :margin-top 4em
 
 #project_show

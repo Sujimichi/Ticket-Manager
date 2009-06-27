@@ -1,5 +1,7 @@
 #project_new
   .centered
     .widget
+      #sub_heading.title add New Project
+      %br
       = render :partial => 'form', :locals => {:project => @project }
       = link_to 'Back', projects_path

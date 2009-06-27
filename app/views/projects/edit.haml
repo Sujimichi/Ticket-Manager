@@ -1,6 +1,7 @@
-%h1 Editing project
-
-= render :partial => 'form', :locals => {:project => @project }
-  
-= link_to 'Back', projects_path
-
+#project_new
+  .centered
+    .widget
+      #sub_heading.title edit Project
+      %br
+      = render :partial => 'form', :locals => {:project => @project }
+      = link_to 'Back', projects_path

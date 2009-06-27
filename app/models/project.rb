@@ -23,4 +23,9 @@ class Project < ActiveRecord::Base
     self.tickets.invalid
   end
 
+
+  def requested_users
+    ProjectUser.find(:all, :conditions => {:requested_project_id => self.id})
+  end
+
 end

@@ -1,6 +1,6 @@
 #project_show
   .hanging_widget
-    = link_to 'Back', projects_path
+    = link_to 'Projects', projects_path
     |
     = link_to_function "Edit", "edit()", :id => "edit_link"
 
@@ -25,8 +25,7 @@
           .user_info
             .label Users:
             .info
-              - @project.users.each do |user|
-                = user.username
+              = @project.users.map{|u| u.username}.and_join
 
         .clear
 

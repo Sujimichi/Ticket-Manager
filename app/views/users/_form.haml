@@ -1,15 +1,18 @@
 .user_form
   -form_for user do |f|
-    = f.error_messages
-    
-    .attribute
-      .name= f.label :username
-      .value= f.text_field :username 
-    .attribute
-      .name= f.label :email
-      .value= f.text_field :email 
-    .attribute
-      .name= f.label :password
-      .value= f.text_field :password 
-    
-    .user_submit_button= f.submit "Save"
+    - unless f.error_messages.empty?
+      .form_errors= f.error_messages
+    .css_table
+      .label= f.label :username
+      .value= f.text_field :username
+    .css_table
+      .label= f.label :email
+      .value= f.text_field :email
+    .css_table
+      .label= f.label :password
+      .value= f.password_field :password
+    .css_table
+      .label= f.label :password_confirmation
+      .value= f.password_field :password_confirmation
+
+    .right.user_submit_button= f.submit "Save"

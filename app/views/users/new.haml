@@ -1,6 +1,9 @@
-%h1 New user
-
-= render :partial => 'form', :locals => {:user => @user }
-  
-= link_to 'Back', users_path
-
+#new_user
+  - if logged_in?
+    .hanging_widget
+      = link_to 'Back', users_path
+    .clear
+  .centered
+    .widget
+      #sub_heading.title Add User
+      = render :partial => 'form', :locals => {:user => @user }

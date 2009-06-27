@@ -1,0 +1,25 @@
+#change_log_show
+  .attribute
+    .name Ticket:
+    .value=h @change_log.ticket_id 
+  .attribute
+    .name Log:
+    .value=h @change_log.log 
+
+#update_change_log{:style => 'display:none;'}
+  = render :partial => 'form', :locals => {:change_log => @change_log }
+
+= link_to_function 'Edit', :href => edit_change_log_path(@change_log), :id => "edit_change_log_link" do |page|
+  - page[:change_log_show].visual_effect :blind_up, :duration => 0.5
+  - page[:update_change_log].visual_effect :blind_down, :duration => 0.5
+  - page[:edit_change_log_link].hide
+  - page[:cancel_edit_change_log_link].visual_effect :appear
+
+= link_to_function 'Cancel', :href => edit_change_log_path(@change_log), :id => 'cancel_edit_change_log_link', :style => "display:none;" do |page|
+  - page[:change_log_show].visual_effect :blind_down, :duration => 0.5
+  - page[:update_change_log].visual_effect :blind_up, :duration => 0.5
+  - page[:cancel_edit_change_log_link].hide
+  - page[:edit_change_log_link].visual_effect :appear
+
+|
+= link_to 'Back', change_logs_path

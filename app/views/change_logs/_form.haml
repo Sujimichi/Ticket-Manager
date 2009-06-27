@@ -1,0 +1,12 @@
+.change_log_form
+  -form_for change_log do |f|
+    = f.error_messages
+    
+    .attribute
+      .name= f.label :ticket_id
+      .value= f.text_field :ticket_id 
+    .attribute
+      .name= f.label :log
+      .value= f.text_field :log 
+    
+    .change_log_submit_button= f.submit "Save"

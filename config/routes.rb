@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :change_logs
+
 
   map.active_tickets 'projects/:project_id/active', :controller => 'tickets', :action => 'index', :ticket_type => :active
   map.closed_tickets 'projects/:project_id/closed', :controller => 'tickets', :action => 'index', :ticket_type => :closed

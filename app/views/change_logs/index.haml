@@ -1,0 +1,29 @@
+%h1 Listing change_logs
+
+= link_to_function 'New change_log', :href => new_change_log_path, :id => 'new_change_log_link' do |page|
+  - page[:create_change_log].visual_effect :blind_down, :duration => 0.5
+  - page[:new_change_log_link].hide
+  - page[:cancel_new_change_log_link].visual_effect :appear
+
+= link_to_function 'Cancel', :href => new_change_log_path, :id => 'cancel_new_change_log_link', :style => "display:none;" do |page|
+  - page[:create_change_log].visual_effect :blind_up, :duration => 0.5
+  - page[:cancel_new_change_log_link].hide
+  - page[:new_change_log_link].visual_effect :appear
+
+#create_change_log{:style => 'display:none;'}
+  = render :partial => 'form', :locals => {:change_log => ChangeLog.new }
+
+%table{:width => "100%"}
+  %tr
+    %th Ticket
+    %th Log
+
+  -for change_log in @change_logs
+    %tr
+      %td= h change_log.ticket_id
+      %td= h change_log.log
+
+    
+      %td= link_to 'Show', change_log_path(change_log)
+      %td= link_to 'Edit', edit_change_log_path(change_log)
+      %td= link_to 'Destroy', change_log_path(change_log), :method => :delete

@@ -1,5 +1,5 @@
 .hanging_widget
-  = link_to_function 'Edit', "edit('#{@ticket.id}')", :id => "edit_ticket_link"
+  = link_to_function 'Edit', "toggeler('edit_ticket_link', 'ticket_widget_id_' + '#{@ticket.id}', 'update_ticket', 'Edit', 'Cancel')", :id => "edit_ticket_link"
   |
   - if @ticket.active?
     = link_to 'Tickets', active_tickets_path(@ticket.project)
@@ -11,7 +11,7 @@
     = link_to 'Tickets', invalid_tickets_path(@ticket.project)
 
   |
-  =link_to_function "Add Comment", "add_comment()", :id => 'add_comment_link'
+  =link_to_function "Add Comment", "toggeler('add_comment_link', 'foo', 'new_comment', 'Add Comment', 'Cancel')", :id => 'add_comment_link'
 
   #new_comment.hidden
     = render :partial => 'comments/form', :locals => {:comment => @ticket.comments.new}
@@ -31,28 +31,3 @@
     #comments
       - @ticket.comments.each do |comment|
         = render :partial => 'comments/widget', :locals => {:comment => comment}
-
-:javascript
-  function edit(t_id){
-    var opt = $('#edit_ticket_link').html();
-    if (opt == 'Edit'){
-      $('#ticket_widget_id_' + t_id).hide('slow')
-      $('#update_ticket').show('slow')
-      $('#edit_ticket_link').html('Cancel');
-    }else{
-      $('#update_ticket').hide('slow')
-      $('#ticket_widget_id_' + t_id).show('slow')
-      $('#edit_ticket_link').html('Edit');
-    };
-  };
-
-  function add_comment(){
-    var opt = $('#add_comment_link').html();
-    if (opt == 'Add Comment'){
-      $('#new_comment').show('slow')
-      $('#add_comment_link').html('Cancel');
-    }else{
-      $('#new_comment').hide('slow')
-      $('#add_comment_link').html('Add Comment');
-    };
-  };

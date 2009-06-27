@@ -41,7 +41,7 @@
             = link_to "register", new_user_path
           - if current_user
             .right.small
-              = link_to "logout", logout_path, :onmousedown => "$('#content').fadeOut()"
+              = link_to "logout (#{current_user.username})", logout_path, :onmousedown => "$('#content').fadeOut()"
               = link_to "edit", edit_user_path(:current)
             .clear
 
@@ -52,3 +52,17 @@
       .clear
       #footer
         %h6 TicketManager.on_rails[:alpha]
+
+:javascript
+  function toggeler(link_div, state_1_div, state_2_div, state_1_text, state_2_text){
+    var opt = $('#' + link_div).html();
+    if (opt == state_1_text){
+      $('#' + state_1_div).hide('slow');
+      $('#' + state_2_div).show('slow');
+      $('#' + link_div).html(state_2_text);
+    }else{
+      $('#' + state_2_div).hide('slow');
+      $('#' + state_1_div).show('slow');
+      $('#' + link_div).html(state_1_text);
+    };
+  };

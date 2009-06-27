@@ -1,5 +1,4 @@
 .DS_Store
-log/*.log
 log/development.log
 coverage
 doc/diagram.png

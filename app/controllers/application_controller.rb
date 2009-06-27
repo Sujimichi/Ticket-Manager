@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   filter_parameter_logging :password
   before_filter :require_login
-  helper_method :current_user, :redirect_back_or_default
+  helper_method :current_user, :redirect_back_or_default, :admin?, :logged_in?
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
@@ -23,6 +23,11 @@ class ApplicationController < ActionController::Base
   def current_user
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.record
+  end
+
+  def logged_in?
+    return true if current_user
+    false
   end
 
   def authentication_failed!
@@ -46,6 +51,17 @@ class ApplicationController < ActionController::Base
   def require_login
     return authentication_failed! unless current_user
   end
+
+  def require_sys_admin
+    return authentication_failed! unless current_user 
+    return not_allowed! unless current_user.sys_admin?
+  end
+
+  def admin?
+    return false unless current_user.sys_admin?
+    true
+  end
+
 
   def store_location
     session[:return_to] = request.request_uri

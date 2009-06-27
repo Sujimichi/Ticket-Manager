@@ -4,6 +4,7 @@ class CreateTickets < ActiveRecord::Migration
       t.string :title
       t.text :details
       t.integer :project_id
+      t.integer :user_id
       
       t.boolean :active, :default => true
       t.boolean :on_hold, :default => false

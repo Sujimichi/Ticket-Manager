@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20090626194421) do
     t.string   "title"
     t.text     "details"
     t.integer  "project_id"
+    t.integer  "user_id"
     t.boolean  "active",        :default => true
     t.boolean  "on_hold",       :default => false
     t.boolean  "invalid",       :default => false
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20090626194421) do
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
+    t.boolean  "sys_admin",         :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -28,7 +28,7 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new(params[:ticket].merge!(:project_id => params[:project_id]))
+    @ticket = Ticket.new(params[:ticket].merge!(:project_id => params[:project_id], :user_id => current_user.id))
     if @ticket.save
       flash[:notice] = 'Ticket was successfully created.'
       redirect_to :back

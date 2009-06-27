@@ -42,9 +42,12 @@
 .widget{:id => "ticket_widget_id_#{ticket.id}"}
   .heading
     .number
-      = "\##{ticket.id}"
-      |
-      = ticket.created_at.to_date
+      .left
+        = "\##{ticket.id}"
+        |
+      .left{:style => 'margin-left:0.5em;'}
+        .small= ticket.created_at.to_date
+        .small= ticket.user.username
     .ticket_title
       = ticket.title
 

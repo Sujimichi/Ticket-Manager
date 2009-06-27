@@ -2,7 +2,7 @@
 
   .left
     .hanging_widget
-      = link_to_function 'New ticket', "$('#create_ticket').toggle('slow')"
+      = link_to_function 'New Ticket', "toggeler('new_ticket_link', 'foo', 'create_ticket', 'New Ticket', 'Cancel')", :id => 'new_ticket_link'
       |
       = link_to "All Tickets", project_tickets_path(@project)
       - types = [:active, :closed, :on_hold, :invalid] - [@ticket_type]

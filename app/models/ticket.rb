@@ -7,18 +7,20 @@ class Ticket < ActiveRecord::Base
   named_scope :in_projects, lambda {|ids| {:conditions => ["project_id IN (?)", ids]}}
   
   belongs_to :project
+  belongs_to :user
   has_many :comments, :dependent => :destroy
 
-  validates_presence_of :project
+  validates_presence_of :project, :user
+
 
   validate_on_create :title_or_text
+
 
   def title_or_text
     return true unless self.details.nil? || self.details.empty?
     return true unless self.title.nil? || self.title.empty?
     self.errors.add("Ticket must have either title or details")
   end
-
 
   def mark_active
     self.update_attributes(:active => true, :invalid => false, :on_hold => false)

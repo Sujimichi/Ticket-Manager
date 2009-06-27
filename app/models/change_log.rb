@@ -1,2 +1,3 @@
-class Change_log < ActiveRecord::Base
+class ChangeLog < ActiveRecord::Base
+  belongs_to :ticket
 end

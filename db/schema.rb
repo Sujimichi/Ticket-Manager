@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090626194421) do
+ActiveRecord::Schema.define(:version => 20090627222554) do
+
+  create_table "change_logs", :force => true do |t|
+    t.integer  "ticket_id"
+    t.string   "log"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "ticket_id"

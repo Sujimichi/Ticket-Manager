@@ -9,12 +9,12 @@ class Ticket < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
   has_many :comments, :dependent => :destroy
+  has_many :change_logs
 
   validates_presence_of :project, :user
 
 
   validate_on_create :title_or_text
-
 
   def title_or_text
     return true unless self.details.nil? || self.details.empty?

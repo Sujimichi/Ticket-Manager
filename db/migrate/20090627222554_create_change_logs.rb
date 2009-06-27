@@ -3,6 +3,7 @@ class CreateChangeLogs < ActiveRecord::Migration
     create_table :change_logs do |t|
       t.integer :ticket_id
       t.string :log
+      t.timestamps
 
     end
   end

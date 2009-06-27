@@ -31,3 +31,7 @@
     #comments
       - @ticket.comments.each do |comment|
         = render :partial => 'comments/widget', :locals => {:comment => comment}
+  .right
+    - @ticket.change_logs.each do |change|
+      = change.log
+      .clear

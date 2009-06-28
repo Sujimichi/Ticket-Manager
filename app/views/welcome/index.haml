@@ -5,16 +5,28 @@
         .inline.title Current Projects
         .inline.small= link_to "manage", projects_path
         %ul
-          - current_user.active_projects.each do |project|
+          - @active_projects.each do |project|
             %li
               %a{:href => "projects/#{project.id}/active"}
                 .project_list_item
                   = project.name
-                  .inline.small= "#{project.tickets.count} Tickets"
-        .right= link_to_function "add ticket", "toggeler('add_ticket_link', 'none', 'quick_ticket', 'add ticket', 'cancel')", :id => 'add_ticket_link'
+                  .inline.small= "#{project.tickets.active.count} Tickets"
+        .right
+          = link_to_function "add ticket", "toggeler('add_ticket_link', 'none', 'quick_ticket', 'add ticket', 'cancel')", :id => 'add_ticket_link'
+          = link_to_function 'New Project', "toggeler('add_project_link', 'foo', 'create_project', 'New Project', 'Cancel')", :id => 'add_project_link'
+
         .clear
         #quick_ticket.hidden
           = render :partial => 'tickets/form', :locals => {:ticket => Ticket.new}
+        #create_project{:style => 'display:none;'}
+          = render :partial => 'projects/form', :locals => {:project => Project.new }
+    .clear
+    #latest_tickets_list
+      - @latest_tickets.each do |ticket|
+        = ticket.created_at.to_date
+        = " - #{ticket.project.name}"
+        = " - #{ticket.title}"
+        .clear
 
 
   - unless current_user

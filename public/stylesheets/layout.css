@@ -122,6 +122,11 @@ h6 {
   margin-top: 3em; }
 #welcome_page .project_list_item {
   margin: 1em; }
+#welcome_page #latest_tickets_list {
+  font-size: 80%;
+  float: right;
+  margin-top: 2em;
+  margin-right: 3em; }
 #welcome_page .label {
   color: #706a6a;
   font-weight: bold; }

@@ -1,0 +1,16 @@
+= hidden_field_tag :ticket_type, ticket_type.nil? ? 'All' : ticket_type
+= hidden_field_tag :title_ticket_type, ticket_type.nil? ? 'All' : ticket_type.to_s.humanize.titlecase
+
+- tickets.sort_by{|t| t.created_at}.each do |ticket|
+  %div{:id => "ticket_id_#{ticket.id}", :class => 'foobar'}
+    = render :partial => 'tickets/widget', :locals => {:ticket => ticket}
+
+:javascript
+  $(function(){
+    var title = $('#title_ticket_type').val();
+    var type = $('#ticket_type').val();
+    var name = $('#project_name').val();
+    $('#sub_heading_title_text').html(title + ' Tickets for ' + name);
+    $('.ticket_type_link_div').show();
+    $('#ticket_link_' + type).hide();
+  });

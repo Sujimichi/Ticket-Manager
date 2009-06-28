@@ -1,25 +1,38 @@
 #tickets_index
-
+  = hidden_field_tag :project_name, @project.name
   .left
     .hanging_widget
       = link_to_function 'New Ticket', "toggeler('new_ticket_link', 'foo', 'create_ticket', 'New Ticket', 'Cancel')", :id => 'new_ticket_link'
       |
       = link_to "All Tickets", project_tickets_path(@project)
-      - types = [:active, :closed, :on_hold, :invalid] - [@ticket_type]
-      - links = {:active => link_to("Active", active_tickets_path(:project_id => @project.id)), :closed => link_to("Closed", closed_tickets_path(:project_id => @project.id)), :on_hold => link_to("On hold", on_hold_tickets_path(:project_id => @project.id)), :invalid => link_to("Invalid", invalid_tickets_path(:project_id => @project.id))}
-      - types.each do |key|
-        |
-        = links[key]
+      - types = [:active, :closed, :on_hold, :invalid]
+      - types.each do |type|
+        %div{:id => "ticket_link_#{type}", :style => 'display:inline;', :class => 'ticket_type_link_div'}
+          |
+          = link_to_function "#{type.to_s.humanize}", "fetch_tickets('#{type}')"
+
       #create_ticket{:style => 'display:none;'}
         = render :partial => 'form', :locals => {:ticket => Ticket.new, :project => @project }
 
   .left.with_margin
-    #sub_heading.title= "#{@ticket_type.nil? ? 'All' : @ticket_type.to_s.titlecase} Tickets for #{@project.name}"
-    = hidden_field_tag :ticket_type, @ticket_type.nil? ? 'All' : @ticket_type
+    #sub_heading.title{:id => 'title_text'}
+      = "#{@ticket_type.nil? ? 'All' : @ticket_type.to_s.titlecase} Tickets for #{@project.name}"
+
 
   .outer_widget
 
     .centered
-      - @tickets.sort_by{|t| t.created_at}.each do |ticket|
-        %div{:id => "ticket_id_#{ticket.id}"}
-          = render :partial => 'tickets/widget', :locals => {:ticket => ticket}
+      #ticket_list
+        = render :partial => 'tickets/list', :locals => {:tickets => @tickets, :ticket_type => @ticket_type}
+:javascript
+
+  function fetch_tickets(url){
+    data = {}
+    $('#ticket_list').fadeOut('slow');
+    function callback(data, textStatus){
+      $('#ticket_list').html(data);
+      $('#ticket_list').fadeIn('slow');
+    };
+    jQuery.get( url, data, callback, 'html' );
+
+  };

@@ -1,17 +1,17 @@
 .hanging_widget
-  = link_to_function 'Edit', "toggeler('edit_ticket_link', 'ticket_widget_id_' + '#{@ticket.id}', 'update_ticket', 'Edit', 'Cancel')", :id => "edit_ticket_link"
-  |
   - if @ticket.active?
-    = link_to 'Tickets', active_tickets_path(@ticket.project)
+    = link_to '<-Tickets', active_tickets_path(@ticket.project)
   - elsif !@ticket.active?
-    = link_to 'Tickets', closed_tickets_path(@ticket.project)
+    = link_to '<-Tickets', closed_tickets_path(@ticket.project)
   -elsif @ticket.on_hold?
-    = link_to 'Tickets', on_hold_tickets_path(@ticket.project)
+    = link_to '<-Tickets', on_hold_tickets_path(@ticket.project)
   -elsif @ticket.invalid?
-    = link_to 'Tickets', invalid_tickets_path(@ticket.project)
+    = link_to '<-Tickets', invalid_tickets_path(@ticket.project)
 
   |
   =link_to_function "Add Comment", "toggeler('add_comment_link', 'foo', 'new_comment', 'Add Comment', 'Cancel')", :id => 'add_comment_link'
+  |
+  = link_to_function 'Edit', "toggeler('edit_ticket_link', 'ticket_widget_id_' + '#{@ticket.id}', 'update_ticket', 'Edit', 'Cancel')", :id => "edit_ticket_link"
 
   #new_comment.hidden
     = render :partial => 'comments/form', :locals => {:comment => @ticket.comments.new}

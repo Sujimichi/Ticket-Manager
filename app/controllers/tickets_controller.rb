@@ -14,6 +14,7 @@ class TicketsController < ApplicationController
     else
       @tickets = current_user.tickets
     end
+    render :partial => 'tickets/list', :locals => {:tickets => @tickets, :ticket_type => @ticket_type} if request.xhr?
   end
 
   def show

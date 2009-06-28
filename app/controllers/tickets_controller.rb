@@ -32,7 +32,9 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(params[:ticket].merge!(:project_id => params[:project_id], :user_id => current_user.id))
     if @ticket.save
       flash[:notice] = 'Ticket was successfully created.'
-      redirect_to :back
+      path = request.env['HTTP_REFERER'] 
+      return redirect_to path unless path.eql?(tickets_url)
+      return redirect_to active_tickets_path(@ticket.project)
     else
       flash[:error] = 'Ticket cannot be created!'
       render :action => "new"

@@ -13,9 +13,9 @@
                   .inline.small= "#{project.tickets.active.count} Tickets"
         .right
           - unless current_user.projects.active.empty?
-            = link_to_function "add Ticket", "toggeler('add_ticket_link', 'none', 'quick_ticket', 'add ticket', 'cancel')", :id => 'add_ticket_link'
+            = link_to_function "add Ticket", "toggeler('add_ticket_link', 'none', 'quick_ticket', 'add Ticket', 'cancel')", :id => 'add_ticket_link'
             |
-          = link_to_function 'add Project', "toggeler('add_project_link', 'foo', 'create_project', 'add Project', 'Cancel')", :id => 'add_project_link'
+          = link_to_function 'add Project', "toggeler('add_project_link', 'none', 'create_project', 'add Project', 'Cancel')", :id => 'add_project_link'
 
         .clear
 

@@ -12,13 +12,16 @@
                   = project.name
                   .inline.small= "#{project.tickets.active.count} Tickets"
         .right
-          = link_to_function "add ticket", "toggeler('add_ticket_link', 'none', 'quick_ticket', 'add ticket', 'cancel')", :id => 'add_ticket_link'
-          = link_to_function 'New Project', "toggeler('add_project_link', 'foo', 'create_project', 'New Project', 'Cancel')", :id => 'add_project_link'
+          - unless current_user.projects.active.empty?
+            = link_to_function "add Ticket", "toggeler('add_ticket_link', 'none', 'quick_ticket', 'add ticket', 'cancel')", :id => 'add_ticket_link'
+            |
+          = link_to_function 'add Project', "toggeler('add_project_link', 'foo', 'create_project', 'add Project', 'Cancel')", :id => 'add_project_link'
 
         .clear
-        #quick_ticket.hidden
+
+        #quick_ticket
           = render :partial => 'tickets/form', :locals => {:ticket => Ticket.new}
-        #create_project{:style => 'display:none;'}
+        #create_project
           = render :partial => 'projects/form', :locals => {:project => Project.new }
     .clear
     #latest_tickets_list

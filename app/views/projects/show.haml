@@ -26,3 +26,8 @@
                 |
                 = link_to "reject", :controller => 'project_users', :action => 'reject', :id => rec.id
               .clear
+  #log_list
+    - @project.change_logs.each do |change|
+      .log
+        = change.log
+        .clear

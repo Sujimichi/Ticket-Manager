@@ -5,7 +5,6 @@ class TicketsController < ApplicationController
     if params[:project_id]
       @project = current_user.projects.find(params[:project_id])
       @ticket_type = params[:ticket_type].to_sym if params[:ticket_type] 
-      
       @tickets = @project.active_tickets if @ticket_type.eql?(:active)
       @tickets = @project.closed_tickets if @ticket_type.eql?(:closed)
       @tickets = @project.on_hold_tickets if @ticket_type.eql?(:on_hold)
@@ -48,9 +47,7 @@ class TicketsController < ApplicationController
       changes = before.select{|k,v| !after[k].eql?(v)}
       changes.each do |change|
         next if change.first.eql?("updated_at")
-        u = "<a href='users/#{current_user.id}'>#{current_user.username}</a>"
-        log = "#{Time.now} - #{u} changed #{change.first}"
-        @ticket.change_logs.create!(:log => log)
+        ChangeLog.make(current_user, @ticket, change.first)
       end
       flash[:notice] = 'Ticket was successfully updated.'
       redirect_to(@ticket)
@@ -70,7 +67,7 @@ class TicketsController < ApplicationController
     @ticket.mark_active if params[:change_to].eql?('active')
     @ticket.mark_on_hold if params[:change_to].gsub(" ", "_").eql?('on_hold')
     @ticket.mark_invalid if params[:change_to].eql?('invalid')    
-    @ticket.change_logs.create!(:log => "#{Time.now} - #{current_user.username} changed status to #{@ticket.status}")
+    ChangeLog.make(current_user, @ticket, nil, "changed status")
     return render :partial => 'tickets/widget', :locals => {:ticket => @ticket} if request.xhr?
     redirect_to :back
   end
@@ -79,7 +76,7 @@ class TicketsController < ApplicationController
     @ticket.update_attributes(:high_priority => true) if params[:priority].downcase.eql?("high")
     @ticket.update_attributes(:high_priority => nil)  if params[:priority].downcase.eql?("normal")
     @ticket.update_attributes(:high_priority => false)if params[:priority].downcase.eql?("low")
-    @ticket.change_logs.create!(:log => "#{Time.now} - #{current_user.username} changed priority to #{@ticket.priority}")
+    ChangeLog.make(current_user, @ticket, nil, "changed priority")
     return render :partial => 'tickets/widget', :locals => {:ticket => @ticket} if request.xhr?
     redirect_to :back
   end

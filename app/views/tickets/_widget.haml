@@ -58,9 +58,9 @@
       |
       = link_to 'Show', ticket_path(ticket)
 
-
-  .details
-    = ticket.details
+  - unless ticket.details.empty?
+    .details
+      = ticket.details
 
 - if ticket.high_priority?
   = javascript_tag "high_priority('#{ticket.id}')"

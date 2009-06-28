@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
   has_many :project_users
   has_many :projects, :through => :project_users
   has_many :users, :through => :project_users
-  has_many :tickets, :dependent => :destroy, :order => "created_at DESC"
+  has_many :tickets, :dependent => :destroy, :order => "tickets.created_at DESC"
 
   validates_presence_of :name
 
@@ -21,6 +21,10 @@ class Project < ActiveRecord::Base
 
   def invalid_tickets
     self.tickets.invalid
+  end
+
+  def change_logs
+    ChangeLog.find(:all, :include => :ticket, :conditions => ["tickets.project_id = ?", self.id], :order => "change_logs.created_at DESC")
   end
 
 

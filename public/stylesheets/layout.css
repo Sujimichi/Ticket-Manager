@@ -154,11 +154,10 @@ h6 {
 #welcome_page li a {
   color: #706a6a;
   font-weight: bold;
-  font-size: 120%;
+  font-size: 140%;
   font-weight: bold; }
   #welcome_page li a:hover {
-    font-size: 130%;
-    color: #6b5d5a; }
+    color: #4f2fcc; }
 
 #tickets_index #sub_heading_title_text a {
   text-decoration: none;
@@ -173,10 +172,10 @@ h6 {
   background-color: #abb4ed;
   padding: 0em; }
   #tickets_index .widget .details {
-    padding: 0.5em 1em 1em 1em; }
+    padding: 0.5em 1em 1em 1em;
+    border-top: 1px solid black; }
   #tickets_index .widget .heading {
     padding: 0.5em 0.5em 0.2em 0.5em;
-    border-bottom: 1px solid black;
     overflow: auto;
     overflow: -moz-scrollbars-none;
     display: inline-block; }
@@ -185,6 +184,7 @@ h6 {
       color: #4f2fcc;
       float: left; }
     #tickets_index .widget .heading .ticket_title {
+      font-weight: bold;
       float: left;
       margin-left: 1em; }
     #tickets_index .widget .heading .links {
@@ -203,10 +203,10 @@ h6 {
     margin-bottom: 1em;
     background-color: #abb4ed; }
     #tickets_show #ticket_show .widget .details {
+      border-top: 1px solid black;
       padding: 0.5em 1em 1em 1em; }
     #tickets_show #ticket_show .widget .heading {
       padding: 0.5em 0.5em 0.2em 0.5em;
-      border-bottom: 1px solid black;
       overflow: auto;
       overflow: -moz-scrollbars-none;
       display: inline-block; }

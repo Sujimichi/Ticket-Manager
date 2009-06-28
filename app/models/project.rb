@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
   has_many :project_users
   has_many :projects, :through => :project_users
   has_many :users, :through => :project_users
-  has_many :tickets, :dependent => :destroy
+  has_many :tickets, :dependent => :destroy, :order => "created_at DESC"
 
   validates_presence_of :name
 

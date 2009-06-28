@@ -1,7 +1,7 @@
 = hidden_field_tag :ticket_type, ticket_type.nil? ? 'All' : ticket_type
 = hidden_field_tag :title_ticket_type, ticket_type.nil? ? 'All' : ticket_type.to_s.humanize.titlecase
 
-- tickets.sort_by{|t| t.created_at}.each do |ticket|
+- tickets.each do |ticket|
   %div{:id => "ticket_id_#{ticket.id}", :class => 'foobar'}
     = render :partial => 'tickets/widget', :locals => {:ticket => ticket}
 

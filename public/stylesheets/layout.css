@@ -210,6 +210,9 @@ h6 {
       #tickets_show #ticket_show .widget .heading {
         display: block; }
 
+#ticket_new .centered {
+  width: 60%; }
+
 #projects_index .centered {
   width: 65%; }
 #projects_index .widget {

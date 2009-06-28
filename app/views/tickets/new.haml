@@ -1,6 +1,8 @@
-%h1 New ticket
-
-= render :partial => 'form', :locals => {:ticket => @ticket }
-  
-= link_to 'Back', tickets_path
-
+#ticket_new
+  .hanging_widget
+    = link_to 'Back', :back
+  .clear
+  .centered
+    .widget
+      #sub_heading.title New Project
+      = render :partial => 'form', :locals => {:ticket => @ticket }

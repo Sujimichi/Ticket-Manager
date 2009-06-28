@@ -2,7 +2,8 @@
 
 .ticket_form{:style => 'padding:1em;'}
   -form_for ticket do |f|
-    = f.error_messages
+    - unless f.error_messages.empty?
+      .form_errors= f.error_messages
     - if project && project.is_a?(Project)
       = hidden_field_tag :project_id, project.id
     - else

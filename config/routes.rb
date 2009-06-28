@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect 'comments/remote_destroy', :controller => 'comments', :action => 'destroy'
   
+  map.connect 'projects/toggle_state', :controller => 'projects', :action => 'update'
   
   map.resources :projects, :has_many => [:tickets]
   map.resources :tickets

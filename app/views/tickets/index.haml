@@ -1,5 +1,6 @@
 #tickets_index
   = hidden_field_tag :project_name, @project.name
+  = hidden_field_tag :project_id, @project.id
   .left
     .hanging_widget
       = link_to_function 'New Ticket', "toggeler('new_ticket_link', 'foo', 'create_ticket', 'New Ticket', 'Cancel')", :id => 'new_ticket_link'

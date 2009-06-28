@@ -28,8 +28,12 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    params[:project] ||= {}
+    params[:project].merge!(:active => !@project.active) if params[:toggle]
+    
     if @project.update_attributes(params[:project])
       flash[:notice] = 'Project was successfully updated.'
+      return render :partial => 'projects/show_widget', :locals => {:project => @project} if request.xhr?
       redirect_to(@project)
     else
       render :action => "edit"
@@ -42,7 +46,7 @@ class ProjectsController < ApplicationController
     flash[:notice] = "#{name} and its tickets has been deleted"
     redirect_to(projects_url)
   end
-
+    
 
   protected
   

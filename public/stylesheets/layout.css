@@ -160,6 +160,12 @@ h6 {
     font-size: 130%;
     color: #6b5d5a; }
 
+#tickets_index #sub_heading_title_text a {
+  text-decoration: none;
+  color: #706a6a;
+  font-weight: bold; }
+  #tickets_index #sub_heading_title_text a:hover {
+    color: #4f2fcc; }
 #tickets_index .centered {
   width: 70%; }
 #tickets_index .widget {

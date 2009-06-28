@@ -1,11 +1,12 @@
 class Ticket < ActiveRecord::Base
-  named_scope :active, :conditions => {:active => true, :on_hold => false, :invalid => false}
+  named_scope :active, :include => :project, :conditions => ["projects.active = ? AND tickets.active = ? AND tickets.on_hold = ? AND tickets.invalid = ?", true, true, false, false]
+
   named_scope :closed, :conditions => {:active => false}
   named_scope :on_hold, :conditions => {:active => true, :on_hold => true}
   named_scope :invalid, :conditions => {:active => true, :invalid => true}
 
   named_scope :in_projects, lambda {|ids| {:conditions => ["project_id IN (?)", ids]}}
-  
+
   belongs_to :project
   belongs_to :user
   has_many :comments, :dependent => :destroy
@@ -52,6 +53,14 @@ class Ticket < ActiveRecord::Base
     return "Low" unless high_priority
   end
 
+  def active?
+    return false unless self.project.active?
+    super
+  end
 
+  def active
+    return false unless self.project.active?
+    super
+  end
 
 end

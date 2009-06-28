@@ -8,26 +8,7 @@
   .outer_widget
     .centered
       #show_project
-        .widget
-          .heading
-            .project_name=h @project.name
-
-          .project_info= @project.info
-
-          .css_table
-            .label Tickets:
-            .value
-              - types = [:active, :closed, :on_hold, :invalid]
-              - links = {:active => link_to("Active", active_tickets_path(:project_id => @project.id)), :closed => link_to("Closed", closed_tickets_path(:project_id => @project.id)), :on_hold => link_to("On hold", on_hold_tickets_path(:project_id => @project.id)), :invalid => link_to("Invalid", invalid_tickets_path(:project_id => @project.id))}
-              - types.each do |key|
-                = "|" unless key.eql?(types.first)
-                = links[key]
-          .css_table
-            .label Users:
-            .value
-              = @project.users.map{|u| u.username}.and_join
-
-        .clear
+        = render :partial => 'projects/show_widget', :locals => {:project => @project}
 
       #update_project{:style => 'display:none;', :class => 'widget'}
         = render :partial => 'form', :locals => {:project => @project, :with_info => true}

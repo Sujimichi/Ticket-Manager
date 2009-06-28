@@ -10,7 +10,9 @@
     var title = $('#title_ticket_type').val();
     var type = $('#ticket_type').val();
     var name = $('#project_name').val();
-    $('#sub_heading_title_text').html(title + ' Tickets for ' + name);
+    var p_id = $('#project_id').val();
+
+    $('#sub_heading_title_text').html(title + ' Tickets for ' + "<a href='/projects/" + p_id + "'>" + name + "</a>");
     $('.ticket_type_link_div').show();
     $('#ticket_link_' + type).hide();
   });

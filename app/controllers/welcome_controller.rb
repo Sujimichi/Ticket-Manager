@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
   def index
     if current_user
       @active_projects = current_user.projects.active
-      @latest_tickets = current_user.tickets.active.find(:all, :order => "created_at DESC")
+      @latest_tickets = current_user.tickets.active.find(:all, :order => "tickets.created_at DESC")
     end
   end
 

@@ -27,5 +27,6 @@ class Project < ActiveRecord::Base
   def requested_users
     ProjectUser.find(:all, :conditions => {:requested_project_id => self.id})
   end
+  
 
 end

@@ -1,0 +1,34 @@
+.widget
+  .heading
+    .project_name=h project.name
+
+  .project_info= project.info
+
+  .css_table
+    .label Tickets:
+    .value
+      - types = [:active, :closed, :on_hold, :invalid]
+      - links = {:active => link_to("Active", active_tickets_path(:project_id => project.id)), :closed => link_to("Closed", closed_tickets_path(:project_id => project.id)), :on_hold => link_to("On hold", on_hold_tickets_path(:project_id => project.id)), :invalid => link_to("Invalid", invalid_tickets_path(:project_id => project.id))}
+      - types.each do |key|
+        = "|" unless key.eql?(types.first)
+        = links[key]
+  .css_table
+    .label Users:
+    .value
+      = project.users.map{|u| u.username}.and_join
+  .css_table
+    .label Active?
+    .value= check_box_tag :active, nil, project.active, :onchange => "toggle_active('#{project.id}')"
+
+.clear
+
+
+:javascript
+  function toggle_active(p_id){
+    url = '/projects/toggle_state'
+    data = {id: p_id, toggle: true}
+    var callback = function (data, textStatus){
+      $('#show_project').html(data)
+    };
+    jQuery.get( url, data, callback, 'html');
+  };

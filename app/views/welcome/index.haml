@@ -26,9 +26,10 @@
     .clear
     #latest_tickets_list
       - @latest_tickets.each do |ticket|
-        = ticket.created_at.to_date
-        = " - #{ticket.project.name}"
-        = " - #{ticket.title}"
+        %a{:href => "/tickets/#{ticket.id}"}
+          = ticket.created_at.to_date
+          = " - #{ticket.project.name}"
+          = " - #{ticket.title}"
         .clear
 
 

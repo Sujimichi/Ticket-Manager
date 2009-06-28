@@ -31,7 +31,8 @@
     #comments
       - @ticket.comments.each do |comment|
         = render :partial => 'comments/widget', :locals => {:comment => comment}
-  .right
+  #log_list
     - @ticket.change_logs.each do |change|
-      = change.log
-      .clear
+      .log
+        = change.log
+        .clear

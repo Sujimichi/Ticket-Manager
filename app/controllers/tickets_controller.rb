@@ -48,7 +48,8 @@ class TicketsController < ApplicationController
       changes = before.select{|k,v| !after[k].eql?(v)}
       changes.each do |change|
         next if change.first.eql?("updated_at")
-        log = "#{Time.now} - #{current_user.username} changed #{change.first}"
+        u = "<a href='users/#{current_user.id}'>#{current_user.username}</a>"
+        log = "#{Time.now} - #{u} changed #{change.first}"
         @ticket.change_logs.create!(:log => log)
       end
       flash[:notice] = 'Ticket was successfully updated.'

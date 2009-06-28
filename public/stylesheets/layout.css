@@ -79,7 +79,7 @@ h6 {
   #header a {
     color: grey; }
     #header a:hover {
-      color: blue; }
+      color: #4f2fcc; }
   #header .links {
     float: right;
     padding-top: 15px;
@@ -128,10 +128,16 @@ h6 {
   margin-top: 1em;
   display: none; }
 #welcome_page #latest_tickets_list {
+  text-align: right;
   font-size: 80%;
   float: right;
   margin-top: 2em;
   margin-right: 3em; }
+  #welcome_page #latest_tickets_list a {
+    color: black;
+    text-decoration: none; }
+    #welcome_page #latest_tickets_list a:hover {
+      color: grey; }
 #welcome_page .label {
   color: #706a6a;
   font-weight: bold; }
@@ -144,7 +150,7 @@ h6 {
 #welcome_page a {
   color: grey; }
   #welcome_page a:hover {
-    color: blue; }
+    color: #4f2fcc; }
 #welcome_page li a {
   color: #706a6a;
   font-weight: bold;
@@ -270,3 +276,25 @@ h6 {
   margin-top: 2em; }
 #new_user .user_form {
   padding: 1em; }
+
+#log_list {
+  text-align: right;
+  font-size: 80%;
+  float: right;
+  margin-top: 2em;
+  margin-right: 3em; }
+  #log_list .log {
+    color: black;
+    text-decoration: none; }
+    #log_list .log:hover {
+      color: grey; }
+      #log_list .log:hover a {
+        color: #4f2fcc;
+        text-decoration: none; }
+        #log_list .log:hover a:hover {
+          color: white; }
+  #log_list a {
+    color: black;
+    text-decoration: none; }
+    #log_list a:hover {
+      color: #4f2fcc; }

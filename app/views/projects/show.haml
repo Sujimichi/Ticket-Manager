@@ -2,7 +2,7 @@
   .hanging_widget
     = link_to 'Projects', projects_path
     |
-    = link_to_function "Edit", "edit()", :id => "edit_link"
+    = link_to_function "Edit", " toggeler('edit_link', 'show_project', 'update_project', 'Edit', 'Cancel')", :id => "edit_link"
 
 
   .outer_widget
@@ -45,20 +45,3 @@
                 |
                 = link_to "reject", :controller => 'project_users', :action => 'reject', :id => rec.id
               .clear
-
-
-
-:javascript
-
-  function edit(){
-    var opt = $('#edit_link').html();
-    if (opt == 'Edit'){
-      $('#show_project').hide('slow')
-      $('#update_project').show('slow')
-      $('#edit_link').html('Cancel');
-    }else{
-      $('#update_project').hide('slow')
-      $('#show_project').show('slow')
-      $('#edit_link').html('Edit');
-    };
-  };

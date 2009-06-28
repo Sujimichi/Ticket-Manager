@@ -197,10 +197,13 @@ h6 {
 
 #tickets_show .centered {
   width: 70%; }
+#tickets_show #comments .hanging_widget {
+  width: 96%;
+  margin: 0; }
 #tickets_show #ticket_show {
   margin-top: 2em; }
   #tickets_show #ticket_show .widget {
-    margin-bottom: 1em;
+    margin: 0em;
     background-color: #abb4ed; }
     #tickets_show #ticket_show .widget .details {
       border-top: 1px solid black;
@@ -221,6 +224,18 @@ h6 {
         float: right; }
       #tickets_show #ticket_show .widget .heading {
         display: block; }
+
+.comment .user_info {
+  font-size: 80%;
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  display: inline-block; }
+  .comment .user_info {
+    display: block; }
+.comment .text {
+  float: left; }
+.comment .links {
+  float: right; }
 
 #ticket_new .centered {
   width: 60%; }

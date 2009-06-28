@@ -229,10 +229,14 @@ h6
 #tickets_show
   .centered
     :width 70%
+  #comments
+    .hanging_widget
+      :width 96%
+      :margin 0
   #ticket_show
     :margin-top 2em
     .widget
-      :margin-bottom 1em
+      :margin 0em
       :background-color #abb4ed
       .details
         :border-top 1px solid black
@@ -249,6 +253,15 @@ h6
         .links
           :float right
         +clearfix
+.comment
+  .user_info
+    :font-size 80%
+    +clearfix
+  .text
+    :float left
+  .links
+    :float right
+
 
 #ticket_new
   .centered
@@ -314,12 +327,17 @@ h6
     :padding 1em
 
 #log_list
+  :text-align right
+  :font-size 80%
+  :float right
+  :margin
+    :top 2em
+    :right 3em
   .log
     :color black
     :text-decoration none
     &:hover
       :color grey
-
       a
         :color #4f2fcc
         :text-decoration none
@@ -330,11 +348,3 @@ h6
     :text-decoration none
     &:hover
       :color #4f2fcc
-
-
-  :text-align right
-  :font-size 80%
-  :float right
-  :margin
-    :top 2em
-    :right 3em

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :projects, :through => :project_users, :include => :tickets
 
   has_many :tickets
+  has_many :comments
 
   #all tickets from all user's projects
   def tickets 

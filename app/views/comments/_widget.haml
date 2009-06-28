@@ -1,8 +1,12 @@
-%div{:id => "comment_id_#{comment.id}", :class => 'widget'}
-  .left
-    = comment.text
-  .right
-    = link_to_function "x", "delete_comment('#{comment.id}')"
+%div{:id => "comment_id_#{comment.id}", :class => 'hanging_widget'}
+  .comment
+    .user_info
+      - if comment.user
+        = "On #{comment.created_at.to_date} #{comment.user.username} commented:"
+    .text
+      = comment.text
+    .links
+      = link_to_function "x", "delete_comment('#{comment.id}')"
 
 
 :javascript

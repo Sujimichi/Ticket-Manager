@@ -16,6 +16,10 @@ body {
   position: relative;
   font-size: 100%; }
 
+a {
+  color: #3d42a8; }
+  a:hover {
+    color: blue; }
 
 h1 {
   color: #706a6a;
@@ -72,6 +76,10 @@ h6 {
     margin-left: 1em;
     float: left;
     width: 50%; }
+  #header a {
+    color: grey; }
+    #header a:hover {
+      color: blue; }
   #header .links {
     float: right;
     padding-top: 15px;
@@ -110,6 +118,8 @@ h6 {
 .index_details {
   font-size: 80%; }
 
+#welcome_page .centered {
+  margin-top: 3em; }
 #welcome_page .project_list_item {
   margin: 1em; }
 #welcome_page .label {
@@ -122,9 +132,9 @@ h6 {
   #welcome_page .widget .login_bttn {
     float: right; }
 #welcome_page a {
-  color: blue; }
+  color: grey; }
   #welcome_page a:hover {
-    color: red; }
+    color: blue; }
 #welcome_page li a {
   color: #706a6a;
   font-weight: bold;
@@ -132,7 +142,7 @@ h6 {
   font-weight: bold; }
   #welcome_page li a:hover {
     font-size: 130%;
-    color: #706a6a; }
+    color: #6b5d5a; }
 
 #tickets_index .centered {
   width: 70%; }
@@ -159,6 +169,9 @@ h6 {
       float: right; }
     #tickets_index .widget .heading {
       display: block; }
+
+.ticket_type_link_div {
+  display: inline; }
 
 #tickets_show .centered {
   width: 70%; }

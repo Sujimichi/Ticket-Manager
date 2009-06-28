@@ -1,6 +1,6 @@
 #welcome_page
   - if current_user
-    .centered{:style => 'margin-top:3em'}
+    .centered
       .edged_widget
         .inline.title Current Projects
         .inline.small= link_to "manage", projects_path
@@ -11,35 +11,24 @@
                 .project_list_item
                   = project.name
                   .inline.small= "#{project.tickets.count} Tickets"
-        .right= link_to_function "add ticket", "$('#quick_ticket').toggle('slow')"
+        .right= link_to_function "add ticket", "toggeler('add_ticket_link', 'none', 'quick_ticket', 'add ticket', 'cancel')", :id => 'add_ticket_link'
         .clear
         #quick_ticket.hidden
           = render :partial => 'tickets/form', :locals => {:ticket => Ticket.new}
 
-    :javascript
-      function hover_on(item){
-         hover_off($('.project_list_item'));
-         item.animate({ fontSize: '110%'}, 500);
-      };
-
-      function hover_off(item){
-        item.animate({ fontSize: '100%'}, 500);
-      };
-
 
   - unless current_user
-    #welcome_matt{:style => 'margin-top:3em'}
-      .centered
-        .widget{:id => 'login_widget'}
-          - form_for UserSession.new do |f|
-            - f.error_messages
-            %br
-            .css_table
-              .label= f.label :username
-              .value= f.text_field :username
-            .css_table
-              .label= f.label :password
-              .value= f.password_field :password
-            .clear
-            .login_bttn=f.submit("Login")
-            %br
+    .centered
+      .widget{:id => 'login_widget'}
+        - form_for UserSession.new do |f|
+          - f.error_messages
+          %br
+          .css_table
+            .label= f.label :username
+            .value= f.text_field :username
+          .css_table
+            .label= f.label :password
+            .value= f.password_field :password
+          .clear
+          .login_bttn=f.submit("Login")
+          %br

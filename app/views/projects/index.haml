@@ -17,10 +17,17 @@
 
 
   .left.with_margin
-    #sub_heading.title Manage Projects
+    #sub_heading.title Projects
 
   .clear
   .outer_widget
     .centered
-      - @projects.each do |project|
-        = render :partial => 'projects/widget', :locals => {:project => project}
+      - unless @active_projects.empty?
+        .active Active Projects
+        - @active_projects.each do |project|
+          = render :partial => 'projects/widget', :locals => {:project => project}
+
+      - unless @other_projects.empty?
+        .inactive In-Active Projects
+        - @other_projects.each do |project|
+          = render :partial => 'projects/widget', :locals => {:project => project}

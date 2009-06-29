@@ -41,23 +41,20 @@
 
 .widget{:id => "ticket_widget_id_#{ticket.id}"}
   .heading
-    .number
-      .left
-        = "\##{ticket.id}"
-        |
-      .left{:style => 'margin-left:0.5em;'}
-        .small= ticket.created_at.to_date
-        .small= ticket.user.username
-    .ticket_title
-      = ticket.title
-
+    %a{:href => ticket_path(ticket)}
+      .number
+        .left
+          = "\##{ticket.id}"
+          |
+        .left{:style => 'margin-left:0.5em;'}
+          .small= ticket.created_at.to_date
+          .small= ticket.user.username
+      .ticket_title
+        = ticket.title
     .links
       - opts = ['active', 'closed', 'on hold', 'invalid' ]
       = select_tag "change_priority_#{ticket.id}", options_for_select(["High", "Normal", "Low"], ticket.priority), :onchange => "change_priority('#{ticket.id}')"
       = select_tag "change_status+#{ticket.id}", options_for_select(opts, ticket.status), :onchange => "change_status('#{ticket.id}')"
-      |
-      = link_to 'Show', ticket_path(ticket)
-
   - unless ticket.details.empty?
     .details
       = ticket.details

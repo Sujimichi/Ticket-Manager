@@ -171,9 +171,13 @@ h6 {
   margin-bottom: 1em;
   background-color: #abb4ed;
   padding: 0em; }
-  #tickets_index .widget .details {
-    padding: 0.5em 1em 1em 1em;
-    border-top: 1px solid black; }
+  #tickets_index .widget a {
+    color: #4f2fcc;
+    text-decoration: none; }
+    #tickets_index .widget a:hover {
+      color: blue; }
+  #tickets_index .widget:hover {
+    border: 0.3em solid #856af2; }
   #tickets_index .widget .heading {
     padding: 0.5em 0.5em 0.2em 0.5em;
     overflow: auto;
@@ -181,16 +185,21 @@ h6 {
     display: inline-block; }
     #tickets_index .widget .heading .number {
       display: inline;
-      color: #4f2fcc;
       float: left; }
     #tickets_index .widget .heading .ticket_title {
+      color: black;
       font-weight: bold;
       float: left;
       margin-left: 1em; }
+      #tickets_index .widget .heading .ticket_title:hover {
+        color: blue; }
     #tickets_index .widget .heading .links {
       float: right; }
     #tickets_index .widget .heading {
       display: block; }
+  #tickets_index .widget .details {
+    padding: 0.5em 1em 1em 1em;
+    border-top: 1px solid black; }
 
 .ticket_type_link_div {
   display: inline; }
@@ -202,28 +211,28 @@ h6 {
   margin: 0; }
 #tickets_show #ticket_show {
   margin-top: 2em; }
-  #tickets_show #ticket_show .widget {
-    margin: 0em;
-    background-color: #abb4ed; }
-    #tickets_show #ticket_show .widget .details {
-      border-top: 1px solid black;
-      padding: 0.5em 1em 1em 1em; }
-    #tickets_show #ticket_show .widget .heading {
-      padding: 0.5em 0.5em 0.2em 0.5em;
-      overflow: auto;
-      overflow: -moz-scrollbars-none;
-      display: inline-block; }
-      #tickets_show #ticket_show .widget .heading .number {
-        display: inline;
-        color: #4f2fcc;
-        float: left; }
-      #tickets_show #ticket_show .widget .heading .ticket_title {
-        float: left;
-        margin-left: 1em; }
-      #tickets_show #ticket_show .widget .heading .links {
-        float: right; }
-      #tickets_show #ticket_show .widget .heading {
-        display: block; }
+#tickets_show .widget {
+  margin: 0em;
+  background-color: #abb4ed; }
+  #tickets_show .widget .details {
+    border-top: 1px solid black;
+    padding: 0.5em 1em 1em 1em; }
+  #tickets_show .widget .heading {
+    padding: 0.5em 0.5em 0.2em 0.5em;
+    overflow: auto;
+    overflow: -moz-scrollbars-none;
+    display: inline-block; }
+    #tickets_show .widget .heading .number {
+      display: inline;
+      color: #4f2fcc;
+      float: left; }
+    #tickets_show .widget .heading .ticket_title {
+      float: left;
+      margin-left: 1em; }
+    #tickets_show .widget .heading .links {
+      float: right; }
+    #tickets_show .widget .heading {
+      display: block; }
 
 .comment .user_info {
   font-size: 80%;
@@ -242,8 +251,19 @@ h6 {
 
 #projects_index .centered {
   width: 65%; }
+#projects_index .active {
+  color: #706a6a;
+  font-weight: bold;
+  font-size: 120%;
+  margin-bottom: 0.5em; }
+#projects_index .inactive {
+  color: #706a6a;
+  font-weight: bold;
+  margin-bottom: 0.5em; }
 #projects_index .widget {
   padding: 0.8em 1em 1em 1em; }
+  #projects_index .widget:hover {
+    background-color: #abb4ed; }
   #projects_index .widget .heading {
     color: #706a6a;
     font-weight: bold;
@@ -283,8 +303,7 @@ h6 {
 #project_show .widget .project_info {
   color: #706a6a;
   padding: 1em; }
-#project_show .widget .css_table .label {
-  padding: 0;
+#project_show .widget .label {
   color: #706a6a;
   font-weight: bold; }
 

@@ -26,7 +26,8 @@
 .widget
   +widget
   :border 0.3em solid #4f2fcc
-  :background-color #abb4ed
+  :background-color transparent
+
   :margin-bottom 10px
   +rounded
 
@@ -154,20 +155,6 @@
     :display table-cell
     :padding-left 1em
 
-.movement_table
-  :display table-row
-  .label
-    :display table-cell
-    :padding-left 1em
-    +label
-  .value
-    :display table-cell
-    :border-bottom 1px dotted black
-    :padding
-      :left 1em
-      :bottom 5px
-      :top 5px
-
 .left
   :float left
 
@@ -191,23 +178,3 @@
 
 .hidden
   :display none
-
-
-
-#selectable
-  .ui-widget-content:hover
-    :background #cccccc
-  .ui-selected
-    :background #F39814
-  .ui-selecting
-    :background #FECA40
-  :list-style-type none
-  :margin 5px
-  :padding 5px
-  .ui-widget-content
-    :border 0px
-    :border-bottom 1px solid black
-    :margin 5px
-    :padding 0.3em
-    :font-size 80%
-    :min-height 10px

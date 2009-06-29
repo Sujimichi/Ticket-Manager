@@ -2,9 +2,9 @@ class CommentsController < ApplicationController
   before_filter :assign_comment, :only => [:update, :destroy]
 
    def create
-     
     @comment = current_user.comments.new(params[:comment].merge!(:user_id => current_user.id))
     if @comment.save
+      ChangeLog.log_comment(current_user, @comment)
       flash[:notice] = 'Comment was successfully created.'
       redirect_to :back
     else

@@ -201,19 +201,26 @@ h6
     :width 70%
 
   .widget
+    a
+      :color #4f2fcc
+      :text-decoration none
+      &:hover
+        :color blue
+    &:hover
+      :border 0.3em solid #856af2
+
     :margin-bottom 1em
     :background-color #abb4ed
     :padding 0em
-    .details
-      :padding 0.5em 1em 1em 1em
-      :border-top 1px solid black
     .heading
       :padding 0.5em 0.5em 0.2em 0.5em
       .number
         :display inline
-        :color #4f2fcc
         :float left
       .ticket_title
+        &:hover
+          :color blue
+        :color black
         :font
           :weight bold
         :float left
@@ -221,6 +228,9 @@ h6
       .links
         :float right
       +clearfix
+    .details
+      :padding 0.5em 1em 1em 1em
+      :border-top 1px solid black
 
 
 .ticket_type_link_div
@@ -235,24 +245,26 @@ h6
       :margin 0
   #ticket_show
     :margin-top 2em
-    .widget
-      :margin 0em
-      :background-color #abb4ed
-      .details
-        :border-top 1px solid black
-        :padding 0.5em 1em 1em 1em
-      .heading
-        :padding 0.5em 0.5em 0.2em 0.5em
-        .number
-          :display inline
-          :color #4f2fcc
-          :float left
-        .ticket_title
-          :float left
-          :margin-left 1em
-        .links
-          :float right
-        +clearfix
+  .widget
+    :margin 0em
+    :background-color #abb4ed
+    .details
+      :border-top 1px solid black
+      :padding 0.5em 1em 1em 1em
+    .heading
+      :padding 0.5em 0.5em 0.2em 0.5em
+      .number
+        :display inline
+        :color #4f2fcc
+        :float left
+      .ticket_title
+        :float left
+        :margin-left 1em
+      .links
+        :float right
+      +clearfix
+
+
 .comment
   .user_info
     :font-size 80%
@@ -270,8 +282,17 @@ h6
 #projects_index
   .centered
     :width 65%
+  .active
+    +heading
+    :font-size 120%
+    :margin-bottom 0.5em
+  .inactive
+    +heading
+    :margin-bottom 0.5em
 
   .widget
+    &:hover
+      :background-color #abb4ed
     :padding 0.8em 1em 1em 1em
     .heading
       +heading
@@ -295,7 +316,6 @@ h6
 #project_show
   .centered
     :width 60%
-
   .widget
     .heading
       +heading
@@ -307,11 +327,8 @@ h6
       :color #706a6a
       :padding 1em
 
-    .css_table
-      .label
-        :padding 0
-        +heading
-      .value
+    .label
+      +heading
 
 #users_index
   .centered

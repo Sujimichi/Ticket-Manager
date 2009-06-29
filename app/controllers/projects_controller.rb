@@ -2,7 +2,8 @@ class ProjectsController < ApplicationController
   before_filter :assign_project, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @projects = current_user.projects
+    @active_projects = current_user.active_projects
+    @other_projects = current_user.projects - current_user.active_projects
   end
 
   def show
@@ -32,7 +33,7 @@ class ProjectsController < ApplicationController
     params[:project].merge!(:active => !@project.active) if params[:toggle]
     
     if @project.update_attributes(params[:project])
-      flash[:notice] = 'Project was successfully updated.'
+      flash[:notice] = 'Project was successfully updated.' unless request.xhr?
       return render :partial => 'projects/show_widget', :locals => {:project => @project} if request.xhr?
       redirect_to(@project)
     else

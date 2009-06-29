@@ -18,7 +18,7 @@
   overflow: -moz-scrollbars-none;
   display: inline-block;
   border: 0.3em solid #4f2fcc;
-  background-color: #abb4ed;
+  background-color: transparent;
   margin-bottom: 10px;
   -moz-border-radius: 8px; -webkit-border-radius: 8px; };
   overflow: auto;
@@ -198,20 +198,6 @@
     display: table-cell;
     padding-left: 1em; }
 
-.movement_table {
-  display: table-row; }
-  .movement_table .label {
-    display: table-cell;
-    padding-left: 1em;
-    color: darkblue;
-    font-weight: bold; }
-  .movement_table .value {
-    display: table-cell;
-    border-bottom: 1px dotted black;
-    padding-left: 1em;
-    padding-bottom: 5px;
-    padding-top: 5px; }
-
 .left {
   float: left; }
 
@@ -235,21 +221,3 @@
 
 .hidden {
   display: none; }
-
-#selectable {
-  list-style-type: none;
-  margin: 5px;
-  padding: 5px; }
-  #selectable .ui-widget-content:hover {
-    background: #cccccc; }
-  #selectable .ui-selected {
-    background: #F39814; }
-  #selectable .ui-selecting {
-    background: #FECA40; }
-  #selectable .ui-widget-content {
-    border: 0px;
-    border-bottom: 1px solid black;
-    margin: 5px;
-    padding: 0.3em;
-    font-size: 80%;
-    min-height: 10px; }

@@ -138,9 +138,6 @@ h6 {
     text-decoration: none; }
     #welcome_page #latest_tickets_list a:hover {
       color: grey; }
-#welcome_page .label {
-  color: #706a6a;
-  font-weight: bold; }
 #welcome_page .widget {
   min-height: 5em;
   border: 0.4em solid #4f2fcc;
@@ -303,9 +300,6 @@ h6 {
 #project_show .widget .project_info {
   color: #706a6a;
   padding: 1em; }
-#project_show .widget .label {
-  color: #706a6a;
-  font-weight: bold; }
 
 #users_index .centered {
   width: 70%;
@@ -316,9 +310,9 @@ h6 {
   margin-top: 2em; }
 #new_user .user_form {
   padding: 1em; }
-#new_user .label {
-  color: #706a6a;
-  font-weight: bold; }
+
+#user_show .centered {
+  margin-top: 5em; }
 
 #log_list {
   text-align: right;

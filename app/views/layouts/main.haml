@@ -42,7 +42,7 @@
           - if current_user
             .right.small
               = link_to "logout (#{current_user.username})", logout_path, :onmousedown => "$('#content').fadeOut()"
-              = link_to "edit", edit_user_path(:current)
+              = link_to "edit", user_path(:current)
             .clear
 
       #content

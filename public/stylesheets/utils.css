@@ -184,7 +184,7 @@
   width: 0; }
 
 .label {
-  color: darkblue;
+  color: #706a6a;
   font-weight: bold; }
 
 .css_table {
@@ -192,7 +192,7 @@
   .css_table .label {
     display: table-cell;
     padding-left: 1em;
-    color: darkblue;
+    color: #706a6a;
     font-weight: bold; }
   .css_table .value {
     display: table-cell;

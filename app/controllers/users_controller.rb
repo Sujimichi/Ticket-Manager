@@ -1,10 +1,18 @@
 class UsersController < ApplicationController
-  before_filter :require_sys_admin, :only => [:index]
   skip_before_filter :require_login, :only => [:new, :create]
+  before_filter :assign_user_for_action, :only => [:edit, :update, :destroy]
+  before_filter :assign_user_for_view , :only => [:show]
 
+  def show
+    
+  end
 
   def index 
-    @users = User.all
+    if current_user.sys_admin?
+      @users = User.all
+    else
+      @users = current_user.associates
+    end
   end
 
   def new
@@ -22,11 +30,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
   end
 
   def update
-    @user = current_user
     if @user.update_attributes(params[:user])
       flash[:notice] = "Successfully updated profile."
       redirect_to root_url
@@ -34,5 +40,40 @@ class UsersController < ApplicationController
       render :action => 'edit'
     end
   end
+
+  def destroy
+    @user.destroy
+    redirect_to users_path
+  end
+
+  protected
+  
+  def assign_user_for_action
+    begin
+      unless current_user.sys_admin?
+        return not_allowed!(users_path) unless params[:id].to_i.eql?(current_user.id)
+        @user = current_user
+      else
+        @user = User.find(params[:id]) 
+      end
+    rescue
+      not_found!(users_path)
+    end
+  end
+
+  def assign_user_for_view
+    begin
+      if current_user.sys_admin?
+        @user = User.find(params[:id])
+      elsif params[:id].to_i.eql?(current_user.id)
+        @user = current_user
+      else
+        @user = current_user.associates.find(params[:id])
+      end
+    rescue
+      not_found!(users_path)
+    end
+  end
+      
 
 end

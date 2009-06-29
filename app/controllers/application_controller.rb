@@ -38,13 +38,11 @@ class ApplicationController < ActionController::Base
 
   def not_allowed! redirect = root_url
     flash[:error] = "You cannot access this"
-    flash[:fade] = true
     redirect_to redirect and return
   end
 
   def not_found! redirect = root_url
     flash[:notice] = "The requested item can not be found"
-    flash[:fade] = true
     redirect_to redirect and return
   end
 

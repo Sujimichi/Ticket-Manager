@@ -8,9 +8,9 @@
       .left
         #create_project{:style => 'display:none;'}
           = render :partial => 'form', :locals => {:project => Project.new }
-        #join_project.hidden{:style => 'width:20em;'}
-          Select Project
+        #join_project.with_margin.hidden{:style => 'width: auto;'}
           - form_for ProjectUser.new, :url => {:controller => 'project_users', :action => 'user_request', :user_id => current_user.id} do |f|
+            Select Project
             = select_tag :project_id, options_for_select(Project.all.map{|p| [p.name, p.id]})
             = f.submit("Request")
             .clear

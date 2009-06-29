@@ -1,9 +1,10 @@
 class TicketsController < ApplicationController
   before_filter :assign_ticket, :only => [:show, :edit, :update, :destroy, :change_priority, :change_status]
+  before_filter :assign_project, :only => [:index]
 
   def index
     if params[:project_id]
-      @project = current_user.projects.find(params[:project_id])
+
       @ticket_type = params[:ticket_type].to_sym if params[:ticket_type] 
       @tickets = @project.active_tickets if @ticket_type.eql?(:active)
       @tickets = @project.closed_tickets if @ticket_type.eql?(:closed)
@@ -88,6 +89,16 @@ class TicketsController < ApplicationController
       @ticket = Ticket.find(:first, :conditions => ["project_id IN (?) AND id = ?", current_user.projects.map{|p| p.id}, params[:id]])
     rescue
       not_found!(tickets_path) 
+    end
+  end
+
+
+  def assign_project
+    return unless params.has_key? :project_id
+    begin
+      @project = current_user.projects.find(params[:project_id])
+    rescue
+      not_found!(projects_path)
     end
   end
 

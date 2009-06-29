@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   acts_as_authentic
-
+  named_scope :user_project_associates, lambda {|id, ids| {:joins => :project_users, :conditions => ["project_users.project_id IN (?) AND NOT user_id = ?", ids, id]}}
   has_many :project_users
   has_many :projects, :through => :project_users, :include => :tickets
 
@@ -28,5 +28,11 @@ class User < ActiveRecord::Base
   def requested_projects
     ids = self.project_users.map{|pu| pu.requested_project_id}.compact
     Project.find(ids)
+  end
+
+  def associates
+    #return all users who are in projects self is part of, does not return self.
+    #done of named scope to it is still a proxy (right word?)
+    User.user_project_associates(self.id, self.projects.map{|p| p.id})
   end
 end
